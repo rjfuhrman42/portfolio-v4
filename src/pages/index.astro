@@ -1,0 +1,98 @@
+---
+import SidebarLayout from '../layouts/SidebarLayout.astro';
+
+const posts = await Astro.glob('./posts/*.md');
+const projects = await Astro.glob('./projects/*.md');
+---
+
+<SidebarLayout title="t3ma - SEO and DEV ">
+  <section class="about">
+    <h2><span class="icon">👤</span> About me</h2>
+    <p>SEO is what I love. If you think that SEO is only about title, description and Semantic Core, then unfortunately not, this is just the tip of the iceberg.</p>
+  </section>
+
+  <section class="posts">
+    <h2><span class="icon">📡</span> Themes  </h2>
+    {posts.map((post) => (
+      <div class="post-item">
+        <a href={post.url} class="post-title">{post.frontmatter.title}</a>
+        <p class="post-description">{post.frontmatter.description}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="projects">
+    <h2><span class="icon">📁</span> Projects</h2>
+    {projects.map((project) => (
+      <div class="project-item">
+        <a href={project.url} class="project-title">{project.frontmatter.title}</a>
+        <p class="project-description">{project.frontmatter.description}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="experience">
+    <h2><span class="icon">💼</span> Work Experience</h2>
+    <div class="experience-item">
+      <div class="experience-header">
+        <span class="date">2020 - present</span>
+        <h3>Icons8.com - SEO</h3>
+      </div>
+      <div class="experience-header">
+        <span class="date">2010 - 2020</span>
+        <h3>Citysakh.ru - CEO</h3>
+      </div>
+    </div>
+
+  </section>
+</SidebarLayout>
+
+<style>
+  section {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .post-item, .project-item, .experience-item {
+    margin: 1.5rem 0;
+  }
+
+  .post-title, .project-title {
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-date, .project-date {
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .date {
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+  }
+</style>
