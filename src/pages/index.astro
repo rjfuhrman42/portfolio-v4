@@ -1,62 +1,20 @@
 ---
-import SidebarLayout from "../layouts/SidebarLayout.astro";
-
+import Layout from "../layouts/Layout.astro";
+import "@fontsource-variable/epilogue";
 const posts = await Astro.glob("./posts/*.md");
 const projects = await Astro.glob("./projects/*.md");
 ---
 
-<SidebarLayout title="t3ma - SEO and DEV ">
-  <section class="about">
-    <h2><span class="icon">👤</span> About me</h2>
+<Layout title="t3ma - SEO and DEV ">
+  <section class="hero">
+    <h1>Reid Fuhrman is a Front End Engineer</h1>
     <p>
-      SEO is what I love. If you think that SEO is only about title, description
-      and Semantic Core, then unfortunately not, this is just the tip of the
-      iceberg.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud.
     </p>
   </section>
-
-  <section class="posts">
-    <h2><span class="icon">📡</span> Themes</h2>
-    {
-      posts.map((post) => (
-        <div class="post-item">
-          <a href={post.url} class="post-title">
-            {post.frontmatter.title}
-          </a>
-          <p class="post-description">{post.frontmatter.description}</p>
-        </div>
-      ))
-    }
-  </section>
-
-  <section class="projects">
-    <h2><span class="icon">📁</span> Projects</h2>
-    {
-      projects.map((project) => (
-        <div class="project-item">
-          <a href={project.url} class="project-title">
-            {project.frontmatter.title}
-          </a>
-          <p class="project-description">{project.frontmatter.description}</p>
-        </div>
-      ))
-    }
-  </section>
-
-  <section class="experience">
-    <h2><span class="icon">💼</span> Work Experience</h2>
-    <div class="experience-item">
-      <div class="experience-header">
-        <span class="date">2020 - present</span>
-        <h3>Icons8.com - SEO</h3>
-      </div>
-      <div class="experience-header">
-        <span class="date">2010 - 2020</span>
-        <h3>Citysakh.ru - CEO</h3>
-      </div>
-    </div>
-  </section>
-</SidebarLayout>
+</Layout>
 
 <style>
   section {

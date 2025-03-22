@@ -1,16 +1,37 @@
 :root {
-  --bg-color: #000000;
-  --text-color: #ffffff;
+  --deep-green: #173336;
+  --light-green: #d1f8e5;
   --accent-color: #666666;
+  --bg-color-dark: var(--deep-green);
+  --bg-color-light: var(--light-green);
+  --text-color-dark: var(--light-green);
+  --text-color-light: var(--deep-green);
+
+  --fluid-36-64: clamp(2.25rem, 1.75rem + 2.5vw, 4rem);
+  --fluid-16-32: clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-size: var(--fluid-36-64);
+  font-family: "Epilogue Variable", sans-serif;
+  font-weight: 900;
+  line-height: 65px;
+}
+
+p {
+  font-family: "Epilogue Variable", sans-serif;
+  font-size: var(--fluid-16-32);
+  font-weight: 400;
 }
 
 a {
