@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "@fontsource-variable/epilogue";
+import "@fontsource/fragment-mono";
 const posts = await Astro.glob("./posts/*.md");
 const projects = await Astro.glob("./projects/*.md");
 ---
@@ -8,19 +9,17 @@ const projects = await Astro.glob("./projects/*.md");
 <Layout title="t3ma - SEO and DEV ">
   <section class="hero">
     <h1>Reid Fuhrman is a Front End Engineer</h1>
-    <p>
+    <p class="hero-text">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud.
     </p>
+    <button class="hero-cta">See my projects -></button>
   </section>
 </Layout>
 
 <style>
   section {
-    margin: 2rem 0;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
   }
 
@@ -67,5 +66,25 @@ const projects = await Astro.glob("./projects/*.md");
 
   .icon {
     font-size: 1.2rem;
+  }
+
+  .hero {
+    max-width: 750px;
+    padding: 5.5em 0em;
+  }
+
+  .hero > h1 {
+  }
+
+  .hero-text {
+    padding: 1em 0em 2em 0em;
+  }
+
+  .hero-cta {
+    font-family: "Epilogue Variable", sans-serif;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    font-size: var(--fluid-16-32);
   }
 </style>

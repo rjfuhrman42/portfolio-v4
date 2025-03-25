@@ -1,24 +1,48 @@
 ---
-interface Props {
-  title: string;
-  body: string;
-  href: string;
-}
 
-const { href, title, body } = Astro.props;
 ---
 
-<li class="link-card">
-  <a href={href}>
-    <h2>
-      {title}
-    </h2>
-    <p>
-      {body}
-    </p>
-  </a>
-</li>
+<nav class="navbar">
+  <ul class="navlinks">
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="/">Projects</a>
+    </li>
+    <li>
+      <a href="/">About Me</a>
+    </li>
+    <li>
+      <a href="/">Blog</a>
+    </li>
+    <li>
+      <a href="/">Resume</a>
+    </li>
+  </ul>
+</nav>
 <style>
+  .navbar {
+    display: flex;
+  }
+
+  .navlinks {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    gap: 0.75em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  .navlinks > li > a {
+    font-family: "Fragment Mono", monospace;
+    text-transform: uppercase;
+    background-color: var(--dark-blue);
+    border-radius: 0.175rem;
+    padding: 0.5em 0.75em;
+  }
+
   .link-card {
     list-style: none;
     display: flex;
@@ -37,10 +61,15 @@ const { href, title, body } = Astro.props;
     line-height: 1.4;
     padding: calc(1.5rem - 1px);
     border-radius: 8px;
-    color: white;
-    background-color: #23262d;
+    color: var(--light-blue);
     opacity: 0.8;
   }
+
+  .navlinks > li > a:hover {
+    background-color: var(--accent-blue);
+    text-decoration: none;
+  }
+
   h2 {
     margin: 0;
     font-size: 1.25rem;
