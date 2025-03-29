@@ -12,6 +12,6 @@
   "dependencies": {
     "@fontsource-variable/epilogue": "^5.2.5",
     "@fontsource/fragment-mono": "^5.2.5",
-    "astro": "^4.15.3"
+    "astro": "5.5.5"
   }
 }

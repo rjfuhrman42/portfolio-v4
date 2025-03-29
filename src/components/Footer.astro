@@ -1,0 +1,50 @@
+---
+import LinkedInIcon from "@assets/svg/linkedin.svg";
+import GithubIcon from "@assets/svg/github.svg";
+
+import { Image } from "astro:assets";
+import flowersImage from "@assets/images/flowers.png";
+---
+
+<footer>
+  <div class="contact">
+    <a href="https://www.linkedin.com/in/reid-fuhrman/" target="_blank">
+      <LinkedInIcon height={40} width={40} />
+    </a>
+    <a href="https://github.com/rjfuhrman42" target="_blank">
+      <GithubIcon height={40} width={40} />
+    </a>
+    <a href="mailto:hey@reidfuhrman.com" target="_blank">
+      HEY@REIDFUHRMAN.COM
+    </a>
+    <Image
+      class="flowers"
+      src={flowersImage}
+      alt="Three different flowers in a row"
+    />
+  </div>
+
+  <style>
+    footer {
+      display: flex;
+      align-items: flex-end;
+      height: 100px;
+      margin-top: auto;
+      font-family: "Fragment Mono", monospace;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .flowers {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      max-width: 650px;
+      heigh: 350px;
+    }
+  </style>
+</footer>
