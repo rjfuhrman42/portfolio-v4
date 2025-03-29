@@ -3,13 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import "@fontsource-variable/epilogue";
 import "@fontsource/fragment-mono";
 
+import Icon from "@components/Icon.astro";
+
 import { Image } from "astro:assets";
 import flowersImage from "../assets/images/flowers.png";
+
 const posts = await Astro.glob("./posts/*.md");
 const projects = await Astro.glob("./projects/*.md");
 ---
 
-<Layout title="t3ma - SEO and DEV ">
+<Layout title="Reid Fuhrman">
   <section class="hero">
     <h1>Reid Fuhrman is a Front End Engineer</h1>
     <p class="hero-text">
@@ -23,6 +26,7 @@ const projects = await Astro.glob("./projects/*.md");
       src={flowersImage}
       alt="Three different flowers in a row"
     />
+    <Icon icon="linkedin" />
   </section>
 </Layout>
 
