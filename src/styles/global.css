@@ -1,15 +1,13 @@
 :root {
-  --deep-green: #173336;
-  --light-green: #d1f8e5;
-  --lightest-green: #f6fefa;
-  --light-blue: #b7e7f2;
-  --dark-blue: #0c3944;
-  --accent-blue: #1f94b0;
-  --accent-color: #666666;
-  --bg-color-dark: var(--dark-blue);
-  --bg-color-light: var(--light-blue);
-  --text-color-dark: var(--light-blue);
-  --text-color-light: var(--dark-blue);
+  --deep-blue: #2f3e97;
+  --nice-beige: #ebdec1;
+  --accent-green: #0d6c37;
+  --accent-red: #ed2224;
+  --accent-brown: #d2935b;
+  --bg-color-dark: var(--deep-blue);
+  --bg-color-light: var(--nice-beige);
+  --text-color-dark: var(--nice-beige);
+  --text-color-light: var(--deep-blue);
 
   --fluid-36-64: clamp(2.25rem, 1.75rem + 2.5vw, 4rem);
   --fluid-16-32: clamp(1rem, 0.6522rem + 1.7391vw, 2.125rem);
@@ -108,7 +106,7 @@ p {
 }
 
 a {
-  color: var(--text-color-dark);
+  color: var(--deep-blue);
   text-decoration: none;
 }
 
