@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import "@fontsource-variable/epilogue";
 import "@fontsource/fragment-mono";
 
+import ArrowRightIcon from "@assets/svg/arrow-right.svg";
+
 const posts = await Astro.glob("./posts/*.md");
 const projects = await Astro.glob("./projects/*.md");
 ---
@@ -15,7 +17,7 @@ const projects = await Astro.glob("./projects/*.md");
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud.
     </p>
-    <a href="/projects" class="hero-cta"> See my projects -> </a>
+    <a href="/projects" class="hero-cta"> See my projects <ArrowRightIcon /></a>
   </section>
 </Layout>
 
@@ -83,10 +85,13 @@ const projects = await Astro.glob("./projects/*.md");
   }
 
   .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-family: "Epilogue Variable", sans-serif;
     background-color: transparent;
     border: none;
-    text-decoration: underline;
+
     font-size: var(--fluid-16-32);
   }
 

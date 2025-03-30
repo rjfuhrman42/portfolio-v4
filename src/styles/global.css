@@ -37,9 +37,6 @@ html.dark {
   color: var(--text-color-dark);
 }
 
-html.light {
-}
-
 body {
   /* 3. Add accessible line-height */
   line-height: 1.5;
@@ -59,12 +56,12 @@ svg {
 
 svg,
 path {
-  stroke: var(--bg-color-light);
+  stroke: var(--bg-color-dark);
 }
 
-:global(.dark) svg,
-path {
-  stroke: var(--bg-color-dark);
+.dark svg,
+.dark path {
+  stroke: var(--bg-color-light);
 }
 
 /* 6. Inherit fonts for form controls */

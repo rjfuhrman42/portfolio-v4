@@ -1,18 +1,22 @@
 ---
-import { Image } from "astro:assets";
-import blueFlower from "@assets/images/blueflower.png";
 import ThemeButton from "./ThemeButton.astro";
+
+import ArrowUpRightIcon from "@assets/svg/arrow-up-right-circle.svg";
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <nav class="navbar">
-  <a href="/" class={currentPath === "" ? "active" : ""}>Home</a>
-  <a href="/" class={currentPath === "/projects" ? "active" : ""}>Projects</a>
-  <a href="/" class={currentPath === "/about" ? "active" : ""}>About Me</a>
-  <a href="/" class={currentPath === "/blog" ? "active" : ""}>Blog</a>
-  <a href="/" class={currentPath === "/resume" ? "active" : ""}>Resume</a>
+  <a href="/" class={`${currentPath === "" ? "active" : ""}`}>Home</a>
+  <a href="/" class={`${currentPath === "/projects" ? "active" : ""}`}
+    >Projects</a
+  >
+  <a href="/" class={`${currentPath === "/about" ? "active" : ""}`}>About Me</a>
+  <a href="/" class={`${currentPath === "/blog" ? "active" : ""}`}>Blog</a>
+  <a href="/" class={`${currentPath === "/resume" ? "active" : ""}`}
+    >Resume{" "}-></a
+  >
   <div
     style={{
       right: 0,
@@ -34,10 +38,13 @@ const currentPath = pathname.slice(1); // remove the first "/"
     }
 
     .navbar > a {
+      display: flex;
+      align-items: center;
       font-family: "Fragment Mono", monospace;
       text-transform: uppercase;
       border-radius: 0.175rem;
       padding: 0.25em 0.75em;
+      font-weight: bold;
     }
 
     .navbar > a:hover {
