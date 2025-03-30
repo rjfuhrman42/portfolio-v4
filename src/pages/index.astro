@@ -15,7 +15,7 @@ const projects = await Astro.glob("./projects/*.md");
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud.
     </p>
-    <button class="hero-cta">See my projects -></button>
+    <a href="/projects" class="hero-cta"> See my projects -> </a>
   </section>
 </Layout>
 
@@ -87,7 +87,10 @@ const projects = await Astro.glob("./projects/*.md");
     background-color: transparent;
     border: none;
     text-decoration: underline;
-    color: var(--deep-blue);
     font-size: var(--fluid-16-32);
+  }
+
+  .hero-cta:hover {
+    cursor: pointer;
   }
 </style>

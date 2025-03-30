@@ -4,18 +4,34 @@ import GithubIcon from "@assets/svg/github.svg";
 
 import { Image } from "astro:assets";
 import flowersImage from "@assets/images/flowers.png";
+import blueFlower from "@assets/images/blueflower.png";
+
+const currentYear = new Date(Date.now()).getFullYear();
+const iconWidth = 30;
+const iconHeight = 30;
 ---
 
 <footer>
+  <span class="reidfuhrman">
+    REID FUHRMAN {currentYear}
+
+    <Image
+      class="blueflower"
+      src={blueFlower}
+      height={15}
+      width={15}
+      alt="A single flower with no stem, five rounded light blue petals, and a yellow disk in the middle of the petals"
+    />
+  </span>
   <div class="contact">
+    <a href="mailto:hey@reidfuhrman.com" target="_blank">
+      EMAIL -> HEY@REIDFUHRMAN.COM
+    </a>
     <a href="https://www.linkedin.com/in/reid-fuhrman/" target="_blank">
-      <LinkedInIcon height={40} width={40} />
+      <LinkedInIcon height={iconHeight} width={iconWidth} />
     </a>
     <a href="https://github.com/rjfuhrman42" target="_blank">
-      <GithubIcon height={40} width={40} />
-    </a>
-    <a href="mailto:hey@reidfuhrman.com" target="_blank">
-      HEY@REIDFUHRMAN.COM
+      <GithubIcon height={iconHeight} width={iconWidth} />
     </a>
     <Image
       class="flowers"
@@ -27,16 +43,25 @@ import flowersImage from "@assets/images/flowers.png";
   <style>
     footer {
       display: flex;
-      align-items: flex-end;
+      flex-direction: column;
+      justify-content: flex-end;
       height: 100px;
       margin-top: auto;
       font-family: "Fragment Mono", monospace;
+      gap: 0.25em;
     }
 
     .contact {
       display: flex;
       align-items: center;
       gap: 1rem;
+      font-weight: bold;
+    }
+
+    .reidfuhrman {
+      display: flex;
+      gap: 10px;
+      font-weight: bold;
     }
 
     .flowers {
@@ -45,6 +70,11 @@ import flowersImage from "@assets/images/flowers.png";
       right: 0;
       max-width: 650px;
       heigh: 350px;
+    }
+
+    .blueflower {
+      display: inline;
+      object-fit: contain;
     }
   </style>
 </footer>

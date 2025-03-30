@@ -27,6 +27,19 @@
   margin: 0;
 }
 
+html {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+html.dark {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+html.light {
+}
+
 body {
   /* 3. Add accessible line-height */
   line-height: 1.5;
@@ -46,7 +59,12 @@ svg {
 
 svg,
 path {
-  stroke: var(--deep-blue);
+  stroke: var(--bg-color-light);
+}
+
+:global(.dark) svg,
+path {
+  stroke: var(--bg-color-dark);
 }
 
 /* 6. Inherit fonts for form controls */
@@ -91,8 +109,8 @@ h6 {
 
 body {
   display: flex;
-  background-color: var(--bg-color-light);
-  color: var(--text-color-light);
+  background-color: inherit;
+  color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   line-height: 1.6;
@@ -115,12 +133,21 @@ p {
 }
 
 a {
-  color: var(--deep-blue);
+  color: var(--text-color-light);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.dark a {
+  color: var(--text-color-dark);
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .container {
