@@ -53,7 +53,8 @@
           "nextjs",
           "tailwind",
           "heroui",
-          "supabase"
+          "supabase",
+          "typescript"
         ],
         "thumbnail": {
           "imagePath": "/src/assets/images/cookeri-preview.png",

@@ -20,8 +20,8 @@ type Project = {
 ---
 
 <Layout title="Reid Fuhrman">
-  <section class="hero">
-    <h2>Personal Projects</h2>
+  <section class="projects">
+    <h2 class="project-header">Personal Projects</h2>
     {
       projects.map((project: Project) => {
         const { name, description, tags, thumbnail, projectUrl, codeUrl } =
@@ -44,5 +44,8 @@ type Project = {
 <style>
   section {
     border-radius: 8px;
+  }
+  .project-header {
+    padding-bottom: 1em;
   }
 </style>

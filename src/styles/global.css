@@ -11,6 +11,9 @@
   --text-color-dark: var(--nice-beige);
   --text-color-light: var(--deep-blue);
 
+  --sans-serif-font: "Epilogue Variable", sans-serif;
+  --mono-font: "Fragment Mono", monospace;
+
   --fluid-36-64: clamp(2.25rem, 1.75rem + 2.5vw, 4rem);
   --fluid-16-32: clamp(1rem, 0.6522rem + 1.7391vw, 2.125rem);
 }
@@ -110,7 +113,7 @@ body {
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-family: "Epilogue Variable", sans-serif;
+  font-family: var(--sans-serif-font);
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -130,7 +133,6 @@ h2 {
 }
 
 p {
-  font-size: var(--fluid-16-32);
   font-family: "Epilogue Variable", sans-serif;
   font-weight: 400;
 }
