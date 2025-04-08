@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import Button from "@components/Button.astro";
 
 interface Props {
   name: string;
@@ -16,12 +17,16 @@ interface Props {
 
 const { name, tags, description, thumbnail, projectUrl, codeUrl } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "@assets/images/*.{jpeg,jpg,png,gif}"
+  "@assets/images/*.{jpeg,jpg,png,gif}",
 );
 ---
 
 <div class="project-card">
-  <Image src={images[thumbnail.imagePath]()} alt={thumbnail.altText} />
+  <Image
+    class="thumbnail"
+    src={images[thumbnail.imagePath]()}
+    alt={thumbnail.altText}
+  />
   <h3 class="project-name">{name}</h3>
 
   <ul class="tech-tags">
@@ -35,8 +40,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     {description}
   </p>
   <div class="button-container">
-    <a href={projectUrl}>VIEW PROJECT</a>
-    <a href={codeUrl}>VIEW ON GITHUB</a>
+    <Button text="view project" variant="primary" href={projectUrl} />
+    <Button text="view on github" variant="secondary" href={codeUrl} />
   </div>
 </div>
 
@@ -45,14 +50,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    max-width: 425px;
     border-radius: 0.175rem;
-    border: 1px solid var(--deep-blue);
+    border: 1.5px solid var(--deep-blue);
     padding: 1em;
   }
 
+  .project-card p {
+    font-size: large;
+  }
+
   :global(.dark) .project-card {
-    border: 1px solid var(--nice-beige);
+    border: 1.5px solid var(--nice-beige);
   }
 
   .project-name {
@@ -75,8 +83,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     border-radius: 0.175rem;
   }
 
+  .thumbnail {
+    box-shadow: none;
+  }
+
   :global(.dark) .tech-tags > li {
     background-color: var(--nice-beige);
     color: var(--deep-blue);
+  }
+
+  .button-container {
+    display: flex;
+    gap: 1em;
   }
 </style>

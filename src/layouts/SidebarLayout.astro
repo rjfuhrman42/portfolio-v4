@@ -1,6 +1,6 @@
 ---
-import Layout from './Layout.astro';
-import siteData from '../data/site.json';
+import Layout from "./Layout.astro";
+import siteData from "../data/site.json";
 
 interface Props {
   title: string;
@@ -19,19 +19,25 @@ const { profile } = siteData;
           <img src={profile.avatar} alt="Profile" class="avatar" />
           <h1 class="logo">{profile.name}</h1>
         </a>
-        
+
         <div class="bio">
-          {profile.bio.map((item) => (
-            <p><span class="icon">{item.icon}</span> {item.text}</p>
-          ))}
+          {
+            profile.bio.map((item) => (
+              <p>
+                <span class="icon">{item.icon}</span> {item.text}
+              </p>
+            ))
+          }
         </div>
 
         <div class="social-links">
-          {profile.socials.map((social) => (
-            <a href={social.url} class="social-link">
-              <span class="icon">{social.icon}</span> {social.name}
-            </a>
-          ))}
+          {
+            profile.socials.map((social) => (
+              <a href={social.url} class="social-link">
+                <span class="icon">{social.icon}</span> {social.name}
+              </a>
+            ))
+          }
         </div>
       </section>
     </div>

@@ -46,22 +46,38 @@
     ]
   },
   "projects": [
-      {
-        "name": "Cookeri",
-        "description": "An app that lets you import recipe data from a URL and save it as part of a recipe list.",
-        "tags": [
-          "nextjs",
-          "tailwind",
-          "heroui",
-          "supabase",
-          "typescript"
-        ],
-        "thumbnail": {
-          "imagePath": "/src/assets/images/cookeri-preview.png",
-          "altText": "cookeri"
-        },
-        "projectUrl": "https://cookeri.vercel.app/",
-        "codeUrl": "https://github.com/rjfuhrman42/cookeri"
-      }
-    ]
+    {
+      "name": "Cookeri",
+      "description": "An app that lets you import recipe data from a URL and save it as part of a recipe list.",
+      "tags": ["nextjs", "tailwind", "heroui", "supabase", "typescript"],
+      "thumbnail": {
+        "imagePath": "/src/assets/images/cookeri-preview.png",
+        "altText": "cookeri"
+      },
+      "projectUrl": "https://cookeri.vercel.app/",
+      "codeUrl": "https://github.com/rjfuhrman42/cookeri"
+    },
+    {
+      "name": "Cookeri",
+      "description": "An app that lets you import recipe data from a URL and save it as part of a recipe list.",
+      "tags": ["nextjs", "tailwind", "heroui", "supabase", "typescript"],
+      "thumbnail": {
+        "imagePath": "/src/assets/images/cookeri-preview.png",
+        "altText": "cookeri"
+      },
+      "projectUrl": "https://cookeri.vercel.app/",
+      "codeUrl": "https://github.com/rjfuhrman42/cookeri"
+    },
+    {
+      "name": "Cookeri",
+      "description": "An app that lets you import recipe data from a URL and save it as part of a recipe list.",
+      "tags": ["nextjs", "tailwind", "heroui", "supabase", "typescript"],
+      "thumbnail": {
+        "imagePath": "/src/assets/images/cookeri-preview.png",
+        "altText": "cookeri"
+      },
+      "projectUrl": "https://cookeri.vercel.app/",
+      "codeUrl": "https://github.com/rjfuhrman42/cookeri"
+    }
+  ]
 }

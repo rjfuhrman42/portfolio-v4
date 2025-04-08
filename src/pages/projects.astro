@@ -5,47 +5,54 @@ import "@fontsource/fragment-mono";
 import ProjectCard from "@components/ProjectCard.astro";
 
 import siteData from "@data/site.json";
-const { projects } = siteData;
 type Project = {
   name: string;
   tags: string[];
   description: string;
-  thumbnail?: {
-    src: string;
-    alt: string;
+  thumbnail: {
+    imagePath: string;
+    altText: string;
   };
   projectUrl?: string;
   codeUrl?: string;
 };
+const projects = siteData.projects as Project[];
 ---
 
 <Layout title="Reid Fuhrman">
   <section class="projects">
     <h2 class="project-header">Personal Projects</h2>
-    {
-      projects.map((project: Project) => {
-        const { name, description, tags, thumbnail, projectUrl, codeUrl } =
-          project;
-        return (
-          <ProjectCard
-            name={name}
-            description={description}
-            tags={tags}
-            thumbnail={thumbnail}
-            projectUrl={projectUrl}
-            codeUrl={codeUrl}
-          />
-        );
-      })
-    }
+    <div class="project-cards">
+      {
+        projects.map((project: Project) => {
+          const { name, description, tags, thumbnail, projectUrl, codeUrl } =
+            project;
+          return (
+            <ProjectCard
+              name={name}
+              description={description}
+              tags={tags}
+              thumbnail={thumbnail}
+              projectUrl={projectUrl}
+              codeUrl={codeUrl}
+            />
+          );
+        })
+      }
+    </div>
   </section>
 </Layout>
 
 <style>
-  section {
-    border-radius: 8px;
+  .projects {
+    margin-bottom: 5em;
   }
   .project-header {
     padding-bottom: 1em;
+  }
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 3em;
   }
 </style>

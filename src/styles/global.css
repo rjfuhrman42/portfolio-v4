@@ -1,6 +1,8 @@
 :root {
-  --deep-blue: #2f3e97;
-  --nice-beige: #ebdec1;
+  --deep-blue: hsla(231, 53%, 39%, 1);
+  --deep-blue-lighter: hsla(231, 53%, 50%, 1);
+  --nice-beige: hsla(41, 51%, 84%, 1);
+  --nice-beige-lighter: hsla(41, 51%, 90%, 1);
   --accent-green: #0d6c37;
   --accent-red: #ed2224;
   --accent-brown: #d2935b;
@@ -13,6 +15,8 @@
 
   --sans-serif-font: "Epilogue Variable", sans-serif;
   --mono-font: "Fragment Mono", monospace;
+
+  --rounded-sm: 0.175rem;
 
   --fluid-36-64: clamp(2.25rem, 1.75rem + 2.5vw, 4rem);
   --fluid-16-32: clamp(1rem, 0.6522rem + 1.7391vw, 2.125rem);
@@ -111,8 +115,9 @@ body {
   display: flex;
   background-color: inherit;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
   font-family: var(--sans-serif-font);
   line-height: 1.6;
   margin: 0;
@@ -164,7 +169,7 @@ button:hover {
 }
 
 .main-slot {
-  padding: 5.5em 0em;
+  padding: 3.5em 0em;
 }
 
 img {
