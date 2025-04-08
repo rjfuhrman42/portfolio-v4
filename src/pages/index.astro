@@ -31,38 +31,6 @@ const projects = await Astro.glob("./projects/*.md");
     border-radius: 8px;
   }
 
-  .post-item,
-  .project-item,
-  .experience-item {
-    margin: 1.5rem 0;
-  }
-
-  .post-title,
-  .project-title {
-    font-size: 1.2rem;
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .post-date,
-  .project-date {
-    font-size: 0.8rem;
-    color: #666;
-  }
-
-  .experience-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-
-  .date {
-    color: #666;
-    font-size: 0.9rem;
-  }
 
   h2 {
     font-size: 1.5rem;
@@ -82,11 +50,12 @@ const projects = await Astro.glob("./projects/*.md");
   }
 
   .hero > h1 {
+
   }
 
   .hero-text {
     padding: 1em 0em 2em 0em;
-    font-size: var(--fluid-16-32);
+    font-size: var(--step-2);
   }
 
   .hero-cta {
@@ -97,7 +66,7 @@ const projects = await Astro.glob("./projects/*.md");
     background-color: transparent;
     border: none;
 
-    font-size: var(--fluid-16-32);
+    font-size: var(--step-2);
   }
 
   .hero-cta:hover {
