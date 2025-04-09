@@ -21,38 +21,52 @@ const projects = siteData.projects as Project[];
 
 <Layout title="Reid Fuhrman">
   <section class="projects">
-    <h2 class="project-header">Personal Projects</h2>
-    <div class="project-cards">
-      {
-        projects.map((project: Project) => {
-          const { name, description, tags, thumbnail, projectUrl, codeUrl } =
-            project;
-          return (
-            <ProjectCard
-              name={name}
-              description={description}
-              tags={tags}
-              thumbnail={thumbnail}
-              projectUrl={projectUrl}
-              codeUrl={codeUrl}
-            />
-          );
-        })
-      }
+    <div class="cards-wrapper">
+      <h2 class="project-header">Personal Projects</h2>
+      <div class="project-cards">
+        {
+          projects.map((project: Project) => {
+            const { name, description, tags, thumbnail, projectUrl, codeUrl } =
+              project;
+            return (
+              <ProjectCard
+                name={name}
+                description={description}
+                tags={tags}
+                thumbnail={thumbnail}
+                projectUrl={projectUrl}
+                codeUrl={codeUrl}
+              />
+            );
+          })
+        }
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
   .projects {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 5em;
   }
   .project-header {
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
+    align-self: start;
+  }
+  .cards-wrapper {
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex: 1;
   }
   .project-cards {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 3em;
   }
 </style>

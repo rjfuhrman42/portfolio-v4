@@ -21,42 +21,52 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<div class="project-card">
-  <Image
-    class="thumbnail"
-    src={images[thumbnail.imagePath]()}
-    alt={thumbnail.altText}
-  />
-  <h3 class="project-name">{name}</h3>
-
-  <ul class="tech-tags">
-    {
-      tags.map((tag) => {
-        return <li>{tag}</li>;
-      })
-    }
-  </ul>
-  <p>
-    {description}
-  </p>
-  <div class="button-container">
-    <Button text="view project" variant="primary" href={projectUrl} />
-    <Button text="view on github" variant="secondary" href={codeUrl} />
+<div class="project-card"> 
+  <div class="preview-image">
+    <Image
+        class="thumbnail"
+        src={images[thumbnail.imagePath]()}
+        alt={thumbnail.altText}
+      />
+  </div>
+  <div class="project-content">
+    <h3 class="project-name">{name}</h3>
+  
+    <ul class="tech-tags">
+      {
+        tags.map((tag) => {
+          return <li>{tag}</li>;
+        })
+      }
+    </ul>
+    <p>
+      {description}
+    </p>
+    <div class="button-container">
+      <Button text="view project" variant="primary" href={projectUrl} />
+      <Button text="view on github" variant="secondary" href={codeUrl} />
+    </div>
   </div>
 </div>
 
 <style>
   .project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
     border-radius: 0.175rem;
     border: 1.5px solid var(--deep-blue);
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
   }
 
   .project-card p {
     font-size: large;
+  }
+
+  .project-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1em;
   }
 
   :global(.dark) .project-card {
@@ -81,10 +91,24 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     background-color: var(--deep-blue);
     color: var(--nice-beige);
     border-radius: 0.175rem;
+    font-size: 14px;
+  }
+
+  .project-card p {
+    padding: 1em 0em;
   }
 
   .thumbnail {
     box-shadow: none;
+    border: inherit;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .preview-image {
+    height: 200px;
+    padding: 1em;
   }
 
   :global(.dark) .tech-tags > li {
@@ -94,6 +118,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
   .button-container {
     display: flex;
+    margin-top: auto;
     gap: 1em;
   }
 </style>

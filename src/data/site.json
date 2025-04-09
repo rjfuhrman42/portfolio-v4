@@ -58,22 +58,22 @@
       "codeUrl": "https://github.com/rjfuhrman42/cookeri"
     },
     {
-      "name": "Cookeri",
-      "description": "An app that lets you import recipe data from a URL and save it as part of a recipe list.",
-      "tags": ["nextjs", "tailwind", "heroui", "supabase", "typescript"],
+      "name": "React Games List",
+      "description": "Search for games, save the ones you've played, rate them 1-10",
+      "tags": ["react", "tailwind", "RAWGAPI", "firebase"],
       "thumbnail": {
-        "imagePath": "/src/assets/images/cookeri-preview.png",
+        "imagePath": "/src/assets/images/rgl-preview.png",
         "altText": "cookeri"
       },
       "projectUrl": "https://cookeri.vercel.app/",
       "codeUrl": "https://github.com/rjfuhrman42/cookeri"
     },
     {
-      "name": "Cookeri",
-      "description": "An app that lets you import recipe data from a URL and save it as part of a recipe list.",
-      "tags": ["nextjs", "tailwind", "heroui", "supabase", "typescript"],
+      "name": "Danganronpa Memory Game",
+      "description": "A fun themed pick-up card game based on the Danganronpa 2 visual novel.",
+      "tags": ["astro", "scss", "postgresql", "nodejs", "typescript"],
       "thumbnail": {
-        "imagePath": "/src/assets/images/cookeri-preview.png",
+        "imagePath": "/src/assets/images/dangan-preview.png",
         "altText": "cookeri"
       },
       "projectUrl": "https://cookeri.vercel.app/",
