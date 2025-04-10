@@ -1,0 +1,92 @@
+---
+interface Props {
+  text: string;
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary";
+  class?: string;
+  href?: string;
+}
+
+const {
+  text,
+  type = "button",
+  variant = "primary",
+  class: className = "",
+  href = undefined,
+} = Astro.props;
+---
+
+<>
+  {
+    href ? (
+      <a href={href} target="_blank">
+        <button
+          type={type}
+          class:list={[`button button-${variant}`, className]}
+        >
+          {text}
+        </button>
+      </a>
+    ) : (
+      <button type={type} class:list={[`button button-${variant}`, className]}>
+        {text}
+      </button>
+    )
+  }
+</>
+
+<style>
+  a {
+    background-color: transparent;
+    color: inherit;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    border-radius: var(--rounded-sm);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: var(--mono-font);
+    text-transform: uppercase;
+    padding: 0.75em 1em;
+  }
+
+  .button-primary {
+    background-color: var(--primary-light);
+    color: var(--nice-beige);
+  }
+
+  .button-primary:hover {
+    background-color: var(--deep-blue-lighter);
+  }
+
+  .button-secondary {
+    background-color: transparent;
+    color: var(--text-color-light);
+    border: 1px solid var(--primary-light);
+  }
+
+  .button-secondary:hover {
+    background-color: var(--nice-beige-lighter);
+  }
+
+  :global(.dark) .button-primary {
+    background-color: var(--primary-dark);
+    color: var(--deep-blue);
+  }
+
+  :global(.dark) .button-primary:hover {
+    background-color: var(--nice-beige-lighter);
+  }
+
+  :global(.dark) .button-secondary {
+    border: 1px solid var(--primary-dark);
+    color: var(--text-color-dark);
+  }
+
+  :global(.dark) .button-secondary:hover {
+    background-color: var(--deep-blue-lighter);
+  }
+</style>

@@ -6,28 +6,36 @@ import ArrowUpRightIcon from "@assets/svg/arrow-up-right-circle.svg";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
-
-<nav class="navbar">
-  <a href="/" class={`${currentPath === "" ? "active" : ""}`}>Home</a>
-  <a href="/" class={`${currentPath === "/projects" ? "active" : ""}`}
-    >Projects</a
-  >
-  <a href="/" class={`${currentPath === "/about" ? "active" : ""}`}>About Me</a>
-  <a href="/" class={`${currentPath === "/blog" ? "active" : ""}`}>Blog</a>
-  <a href="/" class={`${currentPath === "/resume" ? "active" : ""}`}
-    >Resume{" "}-></a
-  >
-  <div
-    style={{
-      right: 0,
-      position: "absolute",
-    }}
-  >
-    <ThemeButton />
-  </div>
+<header class="navbar">
+  <nav>
+    <a href="/" class={`${currentPath === "" ? "active" : ""}`}>Home</a>
+    <a href="/projects" class={`${currentPath === "projects" ? "active" : ""}`}
+      >Projects</a
+    >
+    <a href="/" class={`${currentPath === "about" ? "active" : ""}`}>About Me</a>
+    <a href="/" class={`${currentPath === "blog" ? "active" : ""}`}>Blog</a>
+    <a href="/" class={`${currentPath === "resume" ? "active" : ""}`}
+      >Resume{" "}-></a
+    >
+    <div
+      style={{
+        right: 0,
+        position: "absolute",
+      }}
+    >
+      <ThemeButton />
+    </div>
+    </nav>
+</header>
 
   <style>
-    .navbar {
+    .navbar { 
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    nav {
       display: flex;
       position: relative;
       justify-content: flex-start;
@@ -37,7 +45,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
       margin-block-end: 0;
     }
 
-    .navbar > a {
+    nav > a {
       display: flex;
       align-items: center;
       font-family: "Fragment Mono", monospace;
@@ -45,15 +53,16 @@ const currentPath = pathname.slice(1); // remove the first "/"
       border-radius: 0.175rem;
       padding: 0.25em 0.75em;
       font-weight: bold;
+      white-space: nowrap;
     }
 
-    .navbar > a:hover {
+    nav > a:hover {
       background-color: var(--deep-blue);
       color: var(--nice-beige);
       text-decoration: none;
     }
 
-    :global(.dark) .navbar > a:hover {
+    :global(.dark) nav > a:hover {
       background-color: var(--nice-beige);
       color: var(--deep-blue);
       text-decoration: none;

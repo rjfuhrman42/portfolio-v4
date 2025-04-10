@@ -4,7 +4,6 @@ import GithubIcon from "@assets/svg/github.svg";
 
 import { Image } from "astro:assets";
 import flowersImage from "@assets/images/flowers.png";
-import blueFlower from "@assets/images/blueflower.png";
 
 const currentYear = new Date(Date.now()).getFullYear();
 const iconWidth = 30;
@@ -19,11 +18,19 @@ const iconHeight = 30;
     <a href="mailto:hey@reidfuhrman.com" target="_blank">
       EMAIL -> HEY@REIDFUHRMAN.COM
     </a>
-    <a href="https://www.linkedin.com/in/reid-fuhrman/" target="_blank">
-      <LinkedInIcon height={iconHeight} width={iconWidth} />
+    <a
+      href="https://www.linkedin.com/in/reid-fuhrman/"
+      target="_blank"
+      aria-label="linkedin"
+    >
+      <LinkedInIcon height={iconHeight} width={iconWidth} aria-hidden />
     </a>
-    <a href="https://github.com/rjfuhrman42" target="_blank">
-      <GithubIcon height={iconHeight} width={iconWidth} />
+    <a
+      href="https://github.com/rjfuhrman42"
+      target="_blank"
+      aria-label="github"
+    >
+      <GithubIcon height={iconHeight} width={iconWidth} aria-hidden />
     </a>
     <Image
       class="flowers"
@@ -34,10 +41,11 @@ const iconHeight = 30;
 
   <style>
     footer {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      height: 100px;
+      padding: 1em 0em;
       margin-top: auto;
       font-family: "Fragment Mono", monospace;
       gap: 0.25em;
@@ -59,7 +67,7 @@ const iconHeight = 30;
 
     .flowers {
       position: absolute;
-      bottom: 0;
+      bottom: -25px;
       right: 0;
       max-width: 650px;
       heigh: 350px;

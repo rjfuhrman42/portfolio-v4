@@ -1,0 +1,124 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Button from "@components/Button.astro";
+
+interface Props {
+  name: string;
+  tags: string[];
+  description: string;
+  thumbnail?: {
+    imagePath: string;
+    altText: string;
+  };
+  projectUrl?: string;
+  codeUrl?: string;
+}
+
+const { name, tags, description, thumbnail, projectUrl, codeUrl } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "@assets/images/*.{jpeg,jpg,png,gif}",
+);
+---
+
+<div class="project-card"> 
+  <div class="preview-image">
+    <Image
+        class="thumbnail"
+        src={images[thumbnail.imagePath]()}
+        alt={thumbnail.altText}
+      />
+  </div>
+  <div class="project-content">
+    <h3 class="project-name">{name}</h3>
+  
+    <ul class="tech-tags">
+      {
+        tags.map((tag) => {
+          return <li>{tag}</li>;
+        })
+      }
+    </ul>
+    <p>
+      {description}
+    </p>
+    <div class="button-container">
+      <Button text="view project" variant="primary" href={projectUrl} />
+      <Button text="view on github" variant="secondary" href={codeUrl} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    border-radius: 0.175rem;
+    border: 1.5px solid var(--deep-blue);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card p {
+    font-size: large;
+  }
+
+  .project-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1em;
+  }
+
+  :global(.dark) .project-card {
+    border: 1.5px solid var(--nice-beige);
+  }
+
+  .project-name {
+    font-size: 2rem;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 10px;
+    text-transform: uppercase;
+    font-family: var(--mono-font);
+  }
+
+  .tech-tags > li {
+    padding: 2.5px 10px;
+    background-color: var(--deep-blue);
+    color: var(--nice-beige);
+    border-radius: 0.175rem;
+    font-size: 14px;
+  }
+
+  .project-card p {
+    padding: 1em 0em;
+  }
+
+  .thumbnail {
+    box-shadow: none;
+    border: inherit;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .preview-image {
+    height: 200px;
+    padding: 1em;
+  }
+
+  :global(.dark) .tech-tags > li {
+    background-color: var(--nice-beige);
+    color: var(--deep-blue);
+  }
+
+  .button-container {
+    display: flex;
+    margin-top: auto;
+    gap: 1em;
+  }
+</style>

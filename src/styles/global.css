@@ -1,6 +1,8 @@
 :root {
-  --deep-blue: #2f3e97;
-  --nice-beige: #ebdec1;
+  --deep-blue: hsla(231, 53%, 39%, 1);
+  --deep-blue-lighter: hsla(231, 53%, 50%, 1);
+  --nice-beige: hsla(41, 51%, 84%, 1);
+  --nice-beige-lighter: hsla(41, 51%, 90%, 1);
   --accent-green: #0d6c37;
   --accent-red: #ed2224;
   --accent-brown: #d2935b;
@@ -10,6 +12,18 @@
   --primary-dark: var(--nice-beige);
   --text-color-dark: var(--nice-beige);
   --text-color-light: var(--deep-blue);
+
+  --sans-serif-font: "Epilogue Variable", sans-serif;
+  --mono-font: "Fragment Mono", monospace;
+
+  --rounded-sm: 0.175rem;
+
+  --step-0: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.0958rem + 0.5211vw, 1.4996rem);
+  --step-2: clamp(1.44rem, 1.2456rem + 0.9722vw, 1.999rem);
+  --step-3: clamp(1.728rem, 1.4022rem + 1.629vw, 2.6647rem);
+  --step-4: clamp(2.0736rem, 1.5594rem + 2.5711vw, 3.552rem);
+  --step-5: clamp(2.4883rem, 1.7069rem + 3.907vw, 4.7348rem);
 
   --fluid-36-64: clamp(2.25rem, 1.75rem + 2.5vw, 4rem);
   --fluid-16-32: clamp(1rem, 0.6522rem + 1.7391vw, 2.125rem);
@@ -106,10 +120,14 @@ h6 {
 
 body {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   background-color: inherit;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
+  font-family: var(--sans-serif-font);
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -117,15 +135,24 @@ body {
 }
 
 h1 {
-  font-size: var(--fluid-36-64);
+  font-size: var(--step-5);
   font-family: "Epilogue Variable", sans-serif;
   font-weight: 900;
   line-height: 65px;
 }
 
+h2 {
+  font-size: var(--step-4);
+  font-weight: 900;
+}
+
+h3 {
+  font-size: var(--step-3);
+}
+
 p {
-  font-size: var(--fluid-16-32);
   font-family: "Epilogue Variable", sans-serif;
+  font-size: var(--step-0);
   font-weight: 400;
 }
 
@@ -150,9 +177,12 @@ button:hover {
 .container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   padding: 1.5rem;
   flex: 1;
+}
+
+.main-slot {
+  padding: 2em 0em;
 }
 
 img {
