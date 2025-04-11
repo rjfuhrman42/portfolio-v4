@@ -138,7 +138,7 @@ h1 {
   font-size: var(--step-5);
   font-family: "Epilogue Variable", sans-serif;
   font-weight: 900;
-  line-height: 65px;
+  line-height: clamp(2.4883rem, 1.7069rem + 3.907vw, 4.7348rem);
 }
 
 h2 {
@@ -177,7 +177,7 @@ button:hover {
 .container {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 0.75em;
   flex: 1;
 }
 
@@ -193,4 +193,13 @@ img {
 ul {
   margin: 0; /* To remove default bottom margin */
   padding: 0; /* To remove default left padding */
+}
+
+@media (width >= 40rem) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    flex: 1;
+  }
 }
