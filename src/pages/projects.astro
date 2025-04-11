@@ -22,7 +22,7 @@ const projects = siteData.projects as Project[];
 <Layout title="Reid Fuhrman">
   <section class="projects">
     <div class="cards-wrapper">
-      <h2 class="project-header">Personal Projects</h2>
+      <h2 class="project-header">Projects</h2>
       <div class="project-cards">
         {
           projects.map((project: Project) => {
@@ -63,7 +63,7 @@ const projects = siteData.projects as Project[];
     flex: 1;
   }
   .project-cards {
-    margin-top: 4rem;
+    margin-top: clamp(1.5rem, 2vw, 3rem);
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));

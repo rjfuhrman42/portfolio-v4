@@ -21,17 +21,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<div class="project-card"> 
+<div class="project-card">
   <div class="preview-image">
     <Image
-        class="thumbnail"
-        src={images[thumbnail.imagePath]()}
-        alt={thumbnail.altText}
-      />
+      class="thumbnail"
+      src={images[thumbnail.imagePath]()}
+      alt={thumbnail.altText}
+    />
   </div>
   <div class="project-content">
     <h3 class="project-name">{name}</h3>
-  
+
     <ul class="tech-tags">
       {
         tags.map((tag) => {
@@ -91,6 +91,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     background-color: var(--deep-blue);
     color: var(--nice-beige);
     border-radius: 0.175rem;
+    font-weight: bold;
     font-size: 14px;
   }
 

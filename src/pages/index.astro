@@ -11,7 +11,7 @@ const projects = await Astro.glob("./projects/*.md");
 
 <Layout title="Reid Fuhrman">
   <section class="hero">
-    <h1>Reid Fuhrman is a Front End Engineer</h1>
+    <h1>Reid Fuhrman is a <br /> Front End Engineer</h1>
     <p class="hero-text">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -24,56 +24,66 @@ const projects = await Astro.glob("./projects/*.md");
       /></a
     >
   </section>
+
+  <style>
+    section {
+      border-radius: 8px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .icon {
+      font-size: 1.2rem;
+    }
+
+    .hero {
+      max-width: 850px;
+      position: relative;
+    }
+
+    .hero > h1 {
+      font-size: var(--step-3);
+    }
+
+    .hero-text {
+      padding: 1em 0em 2em 0em;
+      font-size: var(--step-0);
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: "Epilogue Variable", sans-serif;
+      background-color: transparent;
+      border: none;
+
+      font-size: var(--step-1);
+    }
+
+    .hero-cta:hover {
+      cursor: pointer;
+    }
+
+    @media (width >= 32rem) {
+      .hero > h1 {
+        font-size: var(--fluid-36-64);
+      }
+
+      .hero-text {
+        padding: 1em 0em 2em 0em;
+        font-size: var(--step-2);
+      }
+
+      .hero-cta {
+        font-size: var(--step-2);
+      }
+    }
+  </style>
 </Layout>
-
-<style>
-  section {
-    border-radius: 8px;
-  }
-
-  h1 {
-    padding-top: 10px;
-  }
-
-
-  h2 {
-    font-size: 1.5rem;
-    margin: 2rem 0 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .icon {
-    font-size: 1.2rem;
-  }
-
-  .hero {
-    max-width: 850px;
-    position: relative;
-  }
-
-  .hero > h1 {
-
-  }
-
-  .hero-text {
-    padding: 1em 0em 2em 0em;
-    font-size: var(--step-2);
-  }
-
-  .hero-cta {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-family: "Epilogue Variable", sans-serif;
-    background-color: transparent;
-    border: none;
-
-    font-size: var(--step-2);
-  }
-
-  .hero-cta:hover {
-    cursor: pointer;
-  }
-</style>
