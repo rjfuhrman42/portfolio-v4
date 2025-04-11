@@ -30,10 +30,6 @@ const projects = await Astro.glob("./projects/*.md");
       border-radius: 8px;
     }
 
-    h1 {
-      padding-top: 10px;
-    }
-
     h2 {
       font-size: 1.5rem;
       margin: 2rem 0 1rem;
@@ -52,11 +48,12 @@ const projects = await Astro.glob("./projects/*.md");
     }
 
     .hero > h1 {
+      font-size: var(--step-3);
     }
 
     .hero-text {
       padding: 1em 0em 2em 0em;
-      font-size: var(--step-2);
+      font-size: var(--step-0);
     }
 
     .hero-cta {
@@ -67,16 +64,25 @@ const projects = await Astro.glob("./projects/*.md");
       background-color: transparent;
       border: none;
 
-      font-size: var(--step-2);
+      font-size: var(--step-1);
     }
 
     .hero-cta:hover {
       cursor: pointer;
     }
 
-    @media (width <= 40rem) {
+    @media (width >= 32rem) {
       .hero > h1 {
-        font-size: var(--step-4);
+        font-size: var(--fluid-36-64);
+      }
+
+      .hero-text {
+        padding: 1em 0em 2em 0em;
+        font-size: var(--step-2);
+      }
+
+      .hero-cta {
+        font-size: var(--step-2);
       }
     }
   </style>
