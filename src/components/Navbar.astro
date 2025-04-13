@@ -10,8 +10,9 @@ const currentPath = pathname.slice(1); // remove the first "/"
 <header class="navbar">
   <nav>
     <a href="/" class={`${currentPath === "" ? "active" : ""}`}>Home</a>
-    <a href="/projects" class={`${currentPath === "projects" ? "active" : ""}`}
-      >Projects</a
+    <a
+      href="/projects/"
+      class={`${currentPath === "projects/" ? "active" : ""}`}>Projects</a
     >
     <a href="/" class={`${currentPath === "about" ? "active" : ""}`}>About Me</a
     >
