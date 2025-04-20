@@ -1,0 +1,65 @@
+---
+import Layout from "@layouts/Layout.astro";
+import "@fontsource-variable/epilogue";
+import "@fontsource/fragment-mono";
+
+import siteData from "@data/site.json";
+import { Image } from "astro:assets";
+import polaroid from "@assets/images/polaroid_reid.png";
+---
+
+<Layout title="Reid Fuhrman">
+  <section class="about-me">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m a front end software engineer based in New York City Lorem ipsum
+        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua.
+        <br />
+        <br />
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum.
+      </p>
+    </div>
+    <div class="image-collage">
+      <Image
+        src={polaroid}
+        width={350}
+        alt="A single flower with no stem, five rounded light blue petals, and a yellow disk in the middle of the petals"
+      />
+    </div>
+
+    <style>
+      .about-me {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2em;
+      }
+      .about-text {
+        display: flex;
+        flex-direction: column;
+        max-width: clamp(350px, 100vw, 725px);
+        gap: 2em;
+      }
+      .about-text p {
+        font-size: var(--step-0);
+      }
+      .image-collage {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        min-width: 225px;
+      }
+
+      @media (min-width: 768px) {
+        .about-text p {
+          font-size: var(--step-1);
+        }
+      }
+    </style>
+  </section></Layout
+>
