@@ -3,9 +3,11 @@ import Layout from "@layouts/Layout.astro";
 import "@fontsource-variable/epilogue";
 import "@fontsource/fragment-mono";
 
-import siteData from "@data/site.json";
 import { Image } from "astro:assets";
-import polaroid from "@assets/images/polaroid_reid.png";
+
+import reid from "@assets/images/me.webp";
+import latteArt from "@assets/images/latte-art.webp";
+import bikeReading from "@assets/images/bikereading.webp";
 ---
 
 <Layout title="Reid Fuhrman">
@@ -27,16 +29,23 @@ import polaroid from "@assets/images/polaroid_reid.png";
     </div>
     <div class="image-collage">
       <Image
-        src={polaroid}
-        width={350}
-        alt="A single flower with no stem, five rounded light blue petals, and a yellow disk in the middle of the petals"
+        src={reid}
+        alt="A picture of Reid sitting at a table in a cafe. He is wearing a light brown baseball cap and a black shirt with the words 'elephant gym' on the front"
+      />
+      <Image
+        src={latteArt}
+        alt="A picture of Reid sitting at a table in a cafe. He is wearing a light brown baseball cap and a black shirt with the words 'elephant gym' on the front"
+      />
+      <Image
+        src={bikeReading}
+        alt="A picture of Reid sitting at a table in a cafe. He is wearing a light brown baseball cap and a black shirt with the words 'elephant gym' on the front"
       />
     </div>
 
     <style>
       .about-me {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 2em;
       }
       .about-text {
@@ -49,15 +58,60 @@ import polaroid from "@assets/images/polaroid_reid.png";
         font-size: var(--step-0);
       }
       .image-collage {
+        position: relative;
         display: flex;
-        justify-content: center;
+        flex-direction: row;
         flex: 1;
-        min-width: 225px;
+        min-height: 450px;
+        max-width: 500px;
+
+        scrollbar-width: none;
+      }
+
+      .image-collage img {
+        border: 4px solid var(--deep-blue);
+        height: 300px;
+        width: 225px;
+      }
+
+      :global(.dark) .image-collage > img {
+        border: 4px solid var(--nice-beige);
+      }
+
+      .image-collage img:nth-child(1) {
+        left: 0;
+        top: 15%;
+        transform: rotateZ(-5deg);
+        z-index: 10;
+      }
+
+      .image-collage img:nth-child(2) {
+        top: 0;
+        right: 50px;
+        transform: rotateZ(5deg);
+        height: 225px;
+        width: 175px;
+      }
+
+      .image-collage img:nth-child(3) {
+        bottom: 0;
+        right: 0;
+        transform: rotateZ(10deg);
+      }
+
+      @media (min-width: 1024px) {
+        .about-me {
+          flex-direction: row;
+        }
       }
 
       @media (min-width: 768px) {
         .about-text p {
           font-size: var(--step-1);
+        }
+
+        .image-collage img {
+          position: absolute;
         }
       }
     </style>
