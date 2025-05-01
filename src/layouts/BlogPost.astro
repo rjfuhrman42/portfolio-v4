@@ -1,26 +1,34 @@
 ---
-import SidebarLayout from "./SidebarLayout.astro";
+import Layout from "./Layout.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
-<SidebarLayout title={frontmatter.title}>
-  <article class="post">
-    <h1>{frontmatter.title}</h1>
-    <div class="content">
-      <slot />
-    </div>
-  </article>
-</SidebarLayout>
+<Layout title={frontmatter.title}>
+  <div class="post-container">
+    <article class="post">
+      <h1>{frontmatter.title}</h1>
+      <div class="content">
+        <slot />
+      </div>
+    </article>
+  </div>
+</Layout>
 
 <style>
+  .post-container {
+    display: flex;
+    justify-content: center;
+  }
   .post {
+    max-width: 768px;
     margin: 4rem 0;
   }
 
   h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    font-family: "Epilogue Variable", sans-serif !important;
   }
 
   .content {

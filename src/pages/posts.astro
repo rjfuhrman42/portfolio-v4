@@ -1,0 +1,95 @@
+---
+import Layout from "@layouts/Layout.astro";
+import "@fontsource-variable/epilogue";
+import "@fontsource/fragment-mono";
+import { Image } from "astro:assets";
+import latteArt from "@assets/images/latte-art.webp";
+import dayjs from "dayjs";
+import localized from "dayjs/plugin/localizedFormat";
+
+const posts = await Astro.glob("./posts/*.md");
+dayjs.extend(localized);
+---
+
+<Layout title="Reid Fuhrman">
+  <section class="posts">
+    <ul>
+      {
+        posts.map((post) => {
+          const { frontmatter } = post;
+          const date = new Date(frontmatter.date);
+
+          return (
+            <li class="post-card">
+              <article>
+                <header>{dayjs(date).format("LL")}</header>
+                <div>
+                  <Image
+                    class="post-image"
+                    height={328}
+                    width={766}
+                    src={latteArt}
+                    alt="coffee"
+                  />
+                </div>
+                <div class="post-body">
+                  <a class="post-link" href={post.url}>
+                    {frontmatter.title}
+                  </a>
+                </div>
+              </article>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <style>
+      .posts {
+        max-width: 768px;
+      }
+
+      .posts > ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+      }
+
+      .post-card {
+        position: relative;
+        background-color: var(--deep-blue-lighter);
+        padding: 2.5px;
+        transition: all 0.2s ease-in-out;
+      }
+
+      header,
+      .post-body {
+        padding: 1.5em;
+        font-family: var(--mono-font);
+      }
+
+      .post-image {
+        height: 228px;
+        width: 766px;
+        background-color: black;
+        object-fit: cover;
+      }
+
+      .post-link {
+        font-size: var(--step-1);
+        font-weight: bold;
+      }
+
+      .post-link::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+
+      .post-card:hover {
+        transform: scale(1.025);
+      }
+    </style>
+  </section></Layout
+>
