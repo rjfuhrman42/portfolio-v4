@@ -1,6 +1,7 @@
 :root {
   --deep-blue: hsla(231, 53%, 39%, 1);
   --deep-blue-lighter: hsla(231, 53%, 50%, 1);
+  --deep-blue-lightest: hsla(231, 53%, 60%, 1);
   --nice-beige: hsla(41, 51%, 84%, 1);
   --nice-beige-lighter: hsla(41, 51%, 90%, 1);
   --accent-green: #0d6c37;

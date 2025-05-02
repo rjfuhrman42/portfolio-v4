@@ -1,5 +1,6 @@
 ---
 import Layout from "./Layout.astro";
+import "@styles/global.css";
 
 const { frontmatter } = Astro.props;
 ---
@@ -15,7 +16,7 @@ const { frontmatter } = Astro.props;
   </div>
 </Layout>
 
-<style>
+<style is:global>
   .post-container {
     display: flex;
     justify-content: center;
@@ -25,19 +26,22 @@ const { frontmatter } = Astro.props;
     margin: 4rem 0;
   }
 
-  h1 {
-    font-size: 2.5rem;
+  .post h1 {
+    font-size: var(--step-5);
     margin-bottom: 0.5rem;
-    font-family: "Epilogue Variable", sans-serif !important;
+    font-weight: 800;
   }
 
   .content {
     margin-top: 2rem;
   }
 
-  .content :global(h2) {
-    font-size: 1.8rem;
-    margin: 2rem 0 1rem;
+  .content h2 {
+    font-family: var(--sans-serif-font);
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    font-size: var(--step-3);
+    font-weight: bold;
   }
 
   .content :global(p) {
