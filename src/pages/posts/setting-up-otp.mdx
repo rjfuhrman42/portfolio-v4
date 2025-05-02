@@ -18,7 +18,7 @@ Specifically, I'm going to setup an email login with a one-time passcode as oppo
 
 The first thing you will need is a form for the user to enter their email. I've already got one setup here. Ignore the ridiculous number of properties, I'm just using a NextUI `Input` and `Button` component wrapped with a regular form element. Any form here will do. The only important part here is that you need to set the `action` property of the form to be the function that will initiate the email sign-in, which I'll show off in the next section.
 
-```.tsx
+```tsx
 <form
   action={() => handleSignInWithEmail()}
   className="flex flex-col justify-center items-center gap-y-4"
@@ -72,7 +72,7 @@ The first thing you will need is a form for the user to enter their email. I've 
 
 Once the submit button is pressed, the current form data will be passed to our function. Here, I'm calling it `handeSignInWithEmail()`. This function will initiate the sign-in process as well as handle all the logic specific to the login page. In this case, I have some state that tracks whether or not the verification code has been sent. This determines whether or not to show the input for the code. I also have two other functions to handle the actual sign, which are external to this file. I'll go into detail below.
 
-```.tsx
+```tsx
 async function handleSignInWithEmail() {
   if (!email) {
     setIsInvalid(true);
@@ -91,7 +91,7 @@ async function handleSignInWithEmail() {
 
 `signInWithEmail` takes the email value from the form input. A Supbase client is initialized. From here, we can call the auth function `signInWithOtp()`. This function will send an email that contains the user's verification code.
 
-```.tsx
+```tsx
 export const signInWithEmail = async (email: string) => {
   const supabase = createClient();
 
@@ -116,7 +116,7 @@ The email will look something like this:
 
 The next step is to verify the code. `verifyCode`, takes the code along with the email. If everything checks out, the user will enter a session and be successfully logged in. You probably don't want to log the session details to the console normally, but I'm just doing that here to make sure everything is working correctly.
 
-```.tsx
+```tsx
 export const verifyCode = async (email: string, code: string) => {
   const supabase = createClient();
 
@@ -152,6 +152,6 @@ In order to solve this issue, I ended up moving the server functions to their ow
 
 I think running into this issue helped me understand how client and server components work just a little bit better.
 
-# End
+## End
 
 Anyway, thats all from me! Cookeri is like, really close to being done now. The next post I make about might be the last one, so stay tuned. Thanks for reading and have a great week!

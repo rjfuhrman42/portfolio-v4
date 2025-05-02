@@ -51,7 +51,7 @@ To create a route handler, we need to first create a new folder in your `app` di
 
 Inside your `route` file, you'll create an async function, with the name being the type of HTTP request you'd like to make. For our example, I'll be making a `GET` request, so the function definition will look like this:
 
-```.ts
+```js
 // HTTP method is a GET request
 export async function GET(request: Request) {
   ...
@@ -60,7 +60,7 @@ export async function GET(request: Request) {
 
 All that's left from here is to build out your request in the function body. In my example, I'll be fetching some raw `HTML` from a recipe URL with the intent to process its metadata. If I attempted this on the client side, I would be faced with a CORS error. From here, I'll use the `fetch` API to make a request to the recipe URL and then return the response. Here's what my code looks like:
 
-```.ts
+```js
 export async function GET(request: Request) {
     // Fetch the data from the recipe url
     const res = await fetch('https://www.foxandbriar.com/oven-baked-greek-chicken-thighs/', {
@@ -77,7 +77,7 @@ export async function GET(request: Request) {
 
 And done! Now all that's left is to call the route handler from a client component. To do this, you can simply `fetch` the route inside your component. Here's what that looks like:
 
-```.tsx
+```js
 "use client";
 
 import { useEffect, useState } from "react";

@@ -22,7 +22,7 @@ I've summarized some of the work I've done these past couple weeks below:
 
 I felt like I was tinkering on this forever. Supabase makes managing a simple database and API really easy, but I was over thinking what exactly was needed for this to be considered "done". I won't go into too much detail, but I've got all the necessary tables and relationships set up. I've also got the API routes set up. The final snag in the road was figuring out what row level security is and what policies I needed to write for each table. Here's a simple one I wrote:
 
-```.sql
+```sql
   alter policy "Enable all operations for authenticated users only"
   on "public"."recipe_instructions"
   to authenticated

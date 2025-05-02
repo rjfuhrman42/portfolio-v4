@@ -25,15 +25,15 @@ For the title field, you can simply edit it in the `SideBar` component, and it w
 
 For editing ingredients, I've created a standalone component called the `IngredientsEditor`. This takes props for 'ingredients', of course, as well as two callback functions, `onSave()` and `onCancel()`. The editor itself is actually just a `textarea` with all of the ingredients loaded in as an editable string. If the recipe website is using JSON-LD, then the ingredients themselves come as an array of strings for each ingredient. So we can simply `join()` the array into one big string. When done editing, we `split()` the string back into an array and save. Simple. Here's what those functions look like:
 
-```.tsx
-  function parseRecipeData() {
-    return ingredients.join("\n");
-  }
+```tsx
+function parseRecipeData() {
+  return ingredients.join("\n");
+}
 
-  function saveRecipeData(data: string) {
-    const updatedIngredients = data.trim().split("\n");
-    onSave(updatedIngredients);
-  }
+function saveRecipeData(data: string) {
+  const updatedIngredients = data.trim().split("\n");
+  onSave(updatedIngredients);
+}
 ```
 
 And voila, we can edit ingredients! Now, this lets users basically put whatever they want in the text box, but I'm not really concerned about that. If someone actually wants to use this app for its intended purpose, they'll be able to get it. Of course, I do plan to limit how many characters you can input here in the future, as I anticipate that could cause problems! Ingredients and measurements can vary widely across recipes too, so I'm more interested in allowing that freedom than limiting it.
@@ -54,29 +54,29 @@ So I decided to do it differently. I opted to use a tab system. Basically dynami
 
 This allows me to handle each individual section on its own. I can look through each section and parse the text back into sections. Here's what the `saveRecipeData` function looks like:
 
-```.tsx
+```tsx
 function saveRecipeData() {
-    const updatedInstructions = [];
+  const updatedInstructions = [];
 
-    for (let [key, value] of Object.entries(stepsData)) {
-      if (key === "Steps") {
-        const inst = value.split("\n\n").map((step) => {
-          return { "@type": "HowToStep", text: step.trim() } as HowToStep;
-        });
-        updatedInstructions.push(...inst);
-      } else {
-        const section = {
-          "@type": "HowToSection",
-          name: key,
-          itemListElement: value.split("\n\n").map((step) => {
-            return { "@type": "HowToStep", text: step.trim() };
-          }),
-        } as HowToSection;
-        updatedInstructions.push(section);
-      }
+  for (let [key, value] of Object.entries(stepsData)) {
+    if (key === "Steps") {
+      const inst = value.split("\n\n").map((step) => {
+        return { "@type": "HowToStep", text: step.trim() } as HowToStep;
+      });
+      updatedInstructions.push(...inst);
+    } else {
+      const section = {
+        "@type": "HowToSection",
+        name: key,
+        itemListElement: value.split("\n\n").map((step) => {
+          return { "@type": "HowToStep", text: step.trim() };
+        }),
+      } as HowToSection;
+      updatedInstructions.push(section);
     }
-    onSave(updatedInstructions as RecipeSteps);
   }
+  onSave(updatedInstructions as RecipeSteps);
+}
 ```
 
 And, well, it works! I was able to pull in some nice-looking tabs by using [NextUI's ListBox components](https://nextui.org/docs/components/listbox) and it's much cleaner to look at, if I do say so myself. I plan to allow users to create new tabs and remove existing ones before I fully merge this feature. But other than that, the recipe editor is done!

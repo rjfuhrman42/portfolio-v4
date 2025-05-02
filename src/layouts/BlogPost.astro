@@ -3,12 +3,14 @@ import Layout from "./Layout.astro";
 import "@styles/global.css";
 
 const { frontmatter } = Astro.props;
+const date = new Date(frontmatter.date);
 ---
 
 <Layout title={frontmatter.title}>
   <div class="post-container">
     <article class="post">
       <h1>{frontmatter.title}</h1>
+      <p>Posted on - {date.toLocaleDateString()}</p>
       <div class="content">
         <slot />
       </div>
@@ -22,8 +24,9 @@ const { frontmatter } = Astro.props;
     justify-content: center;
   }
   .post {
+    width: 100%;
     max-width: 768px;
-    margin: 4rem 0;
+    margin: 4rem 0 15rem 0;
   }
 
   .post h1 {
@@ -53,5 +56,9 @@ const { frontmatter } = Astro.props;
     padding: 1rem;
     border-radius: 4px;
     overflow-x: auto;
+  }
+
+  .content figure {
+    margin: 2em 0 !important;
   }
 </style>
