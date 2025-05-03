@@ -61,4 +61,31 @@ const date = new Date(frontmatter.date);
   .content figure {
     margin: 2em 0 !important;
   }
+
+  .content ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    list-style-type: none;
+  }
+
+  .content img {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  :global(.dark) .content ul li:before {
+    background: url("../assets/images/yellowflower.png") center no-repeat !important;
+  }
+
+  .content ul li:before {
+    content: "";
+    background: url("../assets/images/yellowflower.png") center no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    margin-left: -18px;
+  }
 </style>
