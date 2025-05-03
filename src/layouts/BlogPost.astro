@@ -1,35 +1,50 @@
 ---
-import SidebarLayout from "./SidebarLayout.astro";
+import Layout from "./Layout.astro";
+import "@styles/global.css";
 
 const { frontmatter } = Astro.props;
+const date = new Date(frontmatter.date);
 ---
 
-<SidebarLayout title={frontmatter.title}>
-  <article class="post">
-    <h1>{frontmatter.title}</h1>
-    <div class="content">
-      <slot />
-    </div>
-  </article>
-</SidebarLayout>
+<Layout title={frontmatter.title}>
+  <div class="post-container">
+    <article class="post">
+      <h1>{frontmatter.title}</h1>
+      <p>Posted on - {date.toLocaleDateString()}</p>
+      <div class="content">
+        <slot />
+      </div>
+    </article>
+  </div>
+</Layout>
 
-<style>
+<style is:global>
+  .post-container {
+    display: flex;
+    justify-content: center;
+  }
   .post {
-    margin: 4rem 0;
+    width: 100%;
+    max-width: 768px;
+    margin: 4rem 0 15rem 0;
   }
 
-  h1 {
-    font-size: 2.5rem;
+  .post h1 {
+    font-size: var(--step-5);
     margin-bottom: 0.5rem;
+    font-weight: 800;
   }
 
   .content {
     margin-top: 2rem;
   }
 
-  .content :global(h2) {
-    font-size: 1.8rem;
-    margin: 2rem 0 1rem;
+  .content h2 {
+    font-family: var(--sans-serif-font);
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    font-size: var(--step-3);
+    font-weight: bold;
   }
 
   .content :global(p) {
@@ -41,5 +56,36 @@ const { frontmatter } = Astro.props;
     padding: 1rem;
     border-radius: 4px;
     overflow-x: auto;
+  }
+
+  .content figure {
+    margin: 2em 0 !important;
+  }
+
+  .content ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    list-style-type: none;
+  }
+
+  .content img {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  :global(.dark) .content ul li:before {
+    background: url("../assets/images/yellowflower.png") center no-repeat !important;
+  }
+
+  .content ul li:before {
+    content: "";
+    background: url("../assets/images/yellowflower.png") center no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    margin-left: -18px;
   }
 </style>

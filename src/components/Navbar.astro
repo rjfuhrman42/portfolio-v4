@@ -17,10 +17,11 @@ const currentPath = pathname.slice(1); // remove the first "/"
     <a href="/about/" class={`${currentPath === "about/" ? "active" : ""}`}
       >About Me</a
     >
-    <a href="/" class={`${currentPath === "blog" ? "active" : ""}`}>Blog</a>
-    <a href="/" class={`${currentPath === "resume" ? "active" : ""}`}
-      >Resume{" "}-></a
+    <a
+      href="/posts/"
+      class={`${currentPath.includes("posts/") ? "active" : ""}`}>Blog</a
     >
+    <a href="/Reid_Fuhrman_resume.pdf" target="_blank">Resume{" "}-></a>
     <div class="theme-button">
       <ThemeButton />
     </div>

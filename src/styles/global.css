@@ -1,6 +1,7 @@
 :root {
   --deep-blue: hsla(231, 53%, 39%, 1);
   --deep-blue-lighter: hsla(231, 53%, 50%, 1);
+  --deep-blue-lightest: hsla(231, 53%, 60%, 1);
   --nice-beige: hsla(41, 51%, 84%, 1);
   --nice-beige-lighter: hsla(41, 51%, 90%, 1);
   --accent-green: #0d6c37;
@@ -127,9 +128,6 @@ body {
   justify-content: flex-start;
   background-color: inherit;
   color: inherit;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
-    Cantarell, "Helvetica Neue", sans-serif;
   font-family: var(--sans-serif-font);
   line-height: 1.6;
   margin: 0;
@@ -153,7 +151,8 @@ h3 {
   font-size: var(--step-3);
 }
 
-p {
+p,
+ul {
   font-family: "Epilogue Variable", sans-serif;
   font-size: var(--step-0);
   font-weight: 400;
@@ -195,7 +194,4 @@ img {
 ul {
   margin: 0; /* To remove default bottom margin */
   padding: 0; /* To remove default left padding */
-}
-
-
 }
