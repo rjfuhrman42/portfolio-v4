@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import "@styles/global.css";
+import "@assets/images/yellowflower.png";
 
 const { frontmatter } = Astro.props;
 const date = new Date(frontmatter.date);
@@ -75,12 +76,12 @@ const date = new Date(frontmatter.date);
   }
 
   :global(.dark) .content ul li:before {
-    background: url("../assets/images/yellowflower.png") center no-repeat !important;
+    background: url("../assets/images/yellowflower.webp") center no-repeat !important;
   }
 
   .content ul li:before {
     content: "";
-    background: url("../assets/images/yellowflower.png") center no-repeat;
+    background: url("../assets/images/yellowflower.webp") center no-repeat;
     background-size: contain;
     display: inline-block;
     width: 15px;
