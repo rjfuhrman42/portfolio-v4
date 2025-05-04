@@ -75,13 +75,20 @@ const date = new Date(frontmatter.date);
     margin-bottom: 2rem;
   }
 
-  :global(.dark) .content ul li:before {
-    background: url("../assets/images/yellowflower.webp") center no-repeat !important;
+  .dark .content li:before {
+    content: "";
+    background-size: contain !important;
+    background: url("../assets/images/yellowflower.png") center no-repeat;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    margin-left: -18px;
   }
 
   .content ul li:before {
     content: "";
-    background: url("../assets/images/yellowflower.webp") center no-repeat;
+    background: url("../assets/images/blueflower.png") center no-repeat;
     background-size: contain;
     display: inline-block;
     width: 15px;
