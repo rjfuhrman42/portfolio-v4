@@ -2,8 +2,8 @@
 import Navbar from "@components/Navbar.astro";
 import Footer from "@components/Footer.astro";
 import "@styles/global.css";
-import "@fontsource-variable/epilogue";
-import "@fontsource/fragment-mono";
+
+import { Font } from "astro:assets";
 
 interface Props {
   title: string;
@@ -22,6 +22,8 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <Font cssVariable="--font-epilogue" preload />
+    <Font cssVariable="--mono-font" preload />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
