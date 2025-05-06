@@ -16,6 +16,7 @@ type Project = {
   codeUrl?: string;
 };
 const projects = siteData.projects as Project[];
+const portfolios = siteData.portfolios as Project[];
 ---
 
 <Layout title="Reid Fuhrman">
@@ -39,6 +40,33 @@ const projects = siteData.projects as Project[];
             );
           })
         }
+      </div>
+      <div class="section">
+        <h2 class="project-header">Portfolios</h2>
+        <div class="project-cards">
+          {
+            portfolios.map((project: Project) => {
+              const {
+                name,
+                description,
+                tags,
+                thumbnail,
+                projectUrl,
+                codeUrl,
+              } = project;
+              return (
+                <ProjectCard
+                  name={name}
+                  description={description}
+                  tags={tags}
+                  thumbnail={thumbnail}
+                  projectUrl={projectUrl}
+                  codeUrl={codeUrl}
+                />
+              );
+            })
+          }
+        </div>
       </div>
     </div>
   </section>
@@ -67,5 +95,10 @@ const projects = siteData.projects as Project[];
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
     gap: 3em;
+  }
+
+  .section {
+    margin-top: 4em;
+    width: 100%;
   }
 </style>

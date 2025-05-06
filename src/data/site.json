@@ -79,5 +79,51 @@
       "projectUrl": "https://dangan2-memory-game.web.app/",
       "codeUrl": "https://github.com/rjfuhrman42/danganronpa2-memory-card-game"
     }
+  ],
+  "portfolios": [
+    {
+      "name": "v4",
+      "description": "The site you're on right now :)",
+      "tags": ["astro", "typescript", "cloudflare pages", "mdx"],
+      "thumbnail": {
+        "imagePath": "/src/assets/images/flowers.png",
+        "altText": "version 4 of my portfolio site"
+      },
+      "projectUrl": "https://www.reidfuhrman.com/",
+      "codeUrl": "https://github.com/rjfuhrman42/portfolio-v4"
+    },
+    {
+      "name": "v3",
+      "description": "Version 3 of my portfolio. Minimalist, inspired by pixel art and video games aesthetic.",
+      "tags": ["nextjs", "tailwindcss", "vercel", "mdx"],
+      "thumbnail": {
+        "imagePath": "/src/assets/images/v3.png",
+        "altText": "version 3 of my portfolio site"
+      },
+      "projectUrl": "https://www.reidfuhrman.com/",
+      "codeUrl": "https://github.com/rjfuhrman42/portfolio-v3"
+    },
+    {
+      "name": "v2",
+      "description": "Version 2 of my portfolio. Honestly still pretty cool. Love the navbar button hover animation. Pixel space themed with a cool color palette.",
+      "tags": ["react", "gatsby", "netlify"],
+      "thumbnail": {
+        "imagePath": "/src/assets/images/v2.png",
+        "altText": "version 2 of my portfolio site"
+      },
+      "projectUrl": "https://reidfuhrman.netlify.app/",
+      "codeUrl": "https://github.com/rjfuhrman42/portfolio-v2"
+    },
+    {
+      "name": "v1",
+      "description": "My first portfolio site. Silly, but look how far I've come!",
+      "tags": ["html", "css", "javascript"],
+      "thumbnail": {
+        "imagePath": "/src/assets/images/v1.png",
+        "altText": "version 4 of my portfolio site"
+      },
+      "projectUrl": "https://rjfuhrman42.github.io/Portfolio-Website/#home",
+      "codeUrl": "https://github.com/rjfuhrman42/Portfolio-Website"
+    }
   ]
 }
