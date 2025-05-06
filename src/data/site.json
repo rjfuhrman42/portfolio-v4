@@ -63,10 +63,10 @@
       "tags": ["react", "tailwindcss", "RAWGAPI", "firebase"],
       "thumbnail": {
         "imagePath": "/src/assets/images/rgl-preview.png",
-        "altText": "cookeri"
+        "altText": "react games list"
       },
-      "projectUrl": "https://cookeri.vercel.app/",
-      "codeUrl": "https://github.com/rjfuhrman42/cookeri"
+      "projectUrl": "https://react-games-list.web.app/",
+      "codeUrl": "https://github.com/rjfuhrman42/react-games-list"
     },
     {
       "name": "Danganronpa Memory Game",
@@ -74,10 +74,10 @@
       "tags": ["HTML", "CSS", "JavaScript"],
       "thumbnail": {
         "imagePath": "/src/assets/images/dangan-preview.png",
-        "altText": "cookeri"
+        "altText": "danganronpa card game"
       },
-      "projectUrl": "https://cookeri.vercel.app/",
-      "codeUrl": "https://github.com/rjfuhrman42/cookeri"
+      "projectUrl": "https://dangan2-memory-game.web.app/",
+      "codeUrl": "https://github.com/rjfuhrman42/danganronpa2-memory-card-game"
     }
   ]
 }
