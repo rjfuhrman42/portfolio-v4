@@ -1,6 +1,8 @@
 ---
 import LinkedInIcon from "@assets/svg/linkedin.svg";
 import GithubIcon from "@assets/svg/github.svg";
+import CodepenIcon from "@assets/svg/codepen.svg";
+import MailIcon from "@assets/svg/send-mail.svg";
 
 import { Image } from "astro:assets";
 import flowersImage from "@assets/images/flowers.png";
@@ -14,8 +16,13 @@ const iconHeight = 30;
   <span class="reidfuhrman">
     REID FUHRMAN {currentYear} 🌼
   </span>
-  <a href="mailto:hey@reidfuhrman.com" target="_blank">HEY@REIDFUHRMAN.COM </a>
+  <a class="email" href="mailto:hey@reidfuhrman.com" target="_blank"
+    >HEY@REIDFUHRMAN.COM
+  </a>
   <div class="contact">
+    <a class="email" href="mailto:hey@reidfuhrman.com" target="_blank"
+      ><MailIcon height={iconHeight} width={iconWidth} aria-hidden />
+    </a>
     <a
       href="https://www.linkedin.com/in/reid-fuhrman/"
       target="_blank"
@@ -29,6 +36,9 @@ const iconHeight = 30;
       aria-label="github"
     >
       <GithubIcon height={iconHeight} width={iconWidth} aria-hidden />
+    </a>
+    <a href="https://codepen.io/reidjf" target="_blank" aria-label="codepen">
+      <CodepenIcon height={iconHeight} width={iconWidth} aria-hidden />
     </a>
     <Image
       class="flowers"
@@ -48,13 +58,13 @@ const iconHeight = 30;
       font-family: "Fragment Mono", monospace;
       font-size: var(--step--1);
       gap: 0.5em;
-      font-weight: bold;
     }
 
     .contact {
       display: flex;
       align-items: center;
       gap: 1rem;
+      padding-bottom: 0.5em;
     }
 
     .reidfuhrman {
@@ -72,6 +82,12 @@ const iconHeight = 30;
     .blueflower {
       display: inline;
       object-fit: contain;
+    }
+
+    .email {
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
   </style>
 </footer>
