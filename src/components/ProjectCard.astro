@@ -2,20 +2,21 @@
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import Button from "@components/Button.astro";
+import type { Project } from "src/pages/projects.astro";
 
-interface Props {
-  name: string;
-  tags: string[];
-  description: string;
-  thumbnail?: {
-    imagePath: string;
-    altText: string;
-  };
-  projectUrl?: string;
-  codeUrl?: string;
-}
+type Props = Project;
 
-const { name, tags, description, thumbnail, projectUrl, codeUrl } = Astro.props;
+const {
+  name,
+  tags,
+  description,
+  thumbnail,
+  projectUrl,
+  codeUrl,
+  appUrl,
+  siteUrl,
+} = Astro.props;
+
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "@assets/images/*.{jpeg,jpg,png,gif}",
 );
@@ -43,8 +44,22 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       {description}
     </p>
     <div class="button-container">
-      <Button text="view project" variant="primary" href={projectUrl} />
-      <Button text="view on github" variant="secondary" href={codeUrl} />
+      {
+        projectUrl && (
+          <Button text="view project" variant="primary" href={projectUrl} />
+        )
+      }
+      {appUrl && <Button text="view the app" variant="primary" href={appUrl} />}
+      {
+        siteUrl && (
+          <Button text="view website" variant="secondary" href={siteUrl} />
+        )
+      }
+      {
+        codeUrl && (
+          <Button text="view on github" variant="secondary" href={codeUrl} />
+        )
+      }
     </div>
   </div>
 </div>
@@ -104,6 +119,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     border: inherit;
     height: 100%;
     width: 100%;
+
     object-fit: cover;
   }
 
