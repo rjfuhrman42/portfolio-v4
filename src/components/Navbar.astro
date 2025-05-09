@@ -22,11 +22,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
       class={`${currentPath.includes("posts/") ? "active" : ""}`}>Blog</a
     >
     <a class="resume" href="/Reid_Fuhrman_resume.pdf" target="_blank"
-      >Resume{" "}<ArrowUpRightIcon
-        class="arrow"
-        height={17}
-        stroke-width={5}
-      /></a
+      >Resume{" "}<ArrowUpRightIcon class="arrow" height={15} /></a
     >
     <div class="theme-button">
       <ThemeButton />
@@ -129,6 +125,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
   nav svg {
     stroke: var(--bg-color-dark);
+    min-width: 25px;
   }
 
   :global(.dark) nav svg {
