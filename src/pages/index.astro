@@ -60,15 +60,21 @@ import ArrowRightIcon from "@assets/svg/arrow-right.svg";
 
     .hero-cta:hover {
       cursor: pointer;
+      text-decoration: none;
+    }
+
+    .hero-cta:hover svg {
+      transform: translateX(10px);
     }
 
     .hero svg,
     .hero path {
       stroke: var(--bg-color-dark);
+      margin-left: 5px;
+      transition: transform 0.25s;
     }
 
-    .dark .hero svg,
-    .dark .hero path {
+    :global(.dark) .hero svg {
       stroke: var(--bg-color-light);
     }
 

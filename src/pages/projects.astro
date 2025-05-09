@@ -4,7 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 
 import siteData from "@data/site.json";
-type Project = {
+export type Project = {
   name: string;
   tags: string[];
   description: string;
@@ -14,35 +14,83 @@ type Project = {
   };
   projectUrl?: string;
   codeUrl?: string;
+  appUrl?: string;
+  siteUrl?: string;
 };
-const projects = siteData.projects as Project[];
-const portfolios = siteData.portfolios as Project[];
+const { work, personal, portfolios } = siteData.projects;
 ---
 
 <Layout title="Reid Fuhrman">
   <section class="projects">
     <div class="cards-wrapper">
-      <h2 class="project-header">Projects</h2>
-      <div class="project-cards">
-        {
-          projects.map((project: Project) => {
-            const { name, description, tags, thumbnail, projectUrl, codeUrl } =
-              project;
-            return (
-              <ProjectCard
-                name={name}
-                description={description}
-                tags={tags}
-                thumbnail={thumbnail}
-                projectUrl={projectUrl}
-                codeUrl={codeUrl}
-              />
-            );
-          })
-        }
+      <div class="heading">
+        <h2>Some things I've worked on</h2>
+        <p>
+          Below are projects I've worked over the past few years, including
+          professional projects, personal hobby projects, and past portfolio
+          sites.
+        </p>
       </div>
       <div class="section">
-        <h2 class="project-header">Portfolios</h2>
+        <h3 class="project-header">Projects at Township</h3>
+        <div class="project-cards">
+          {
+            work.map((project: Project) => {
+              const {
+                name,
+                description,
+                tags,
+                thumbnail,
+                projectUrl,
+                codeUrl,
+                appUrl,
+                siteUrl,
+              } = project;
+              return (
+                <ProjectCard
+                  name={name}
+                  description={description}
+                  tags={tags}
+                  thumbnail={thumbnail}
+                  projectUrl={projectUrl}
+                  codeUrl={codeUrl}
+                  appUrl={appUrl}
+                  siteUrl={siteUrl}
+                />
+              );
+            })
+          }
+        </div>
+      </div>
+      <div class="section">
+        <h3 class="project-header">Personal Projects</h3>
+        <div class="project-cards">
+          {
+            personal.map((project: Project) => {
+              const {
+                name,
+                description,
+                tags,
+                thumbnail,
+                projectUrl,
+                codeUrl,
+              } = project;
+              return (
+                <ProjectCard
+                  name={name}
+                  description={description}
+                  tags={tags}
+                  thumbnail={thumbnail}
+                  projectUrl={projectUrl}
+                  codeUrl={codeUrl}
+                />
+              );
+            })
+          }
+        </div>
+      </div>
+      <div class="section">
+        <h3 class="project-header">Portfolios, past and present</h3>
         <div class="project-cards">
           {
             portfolios.map((project: Project) => {
@@ -79,9 +127,20 @@ const portfolios = siteData.portfolios as Project[];
     align-items: center;
     margin-bottom: 5em;
   }
+
+  .heading {
+    padding-bottom: 5em;
+    max-width: clamp(325px, 100vw, 750px);
+  }
+
   .project-header {
     align-self: start;
   }
+
+  .projects-p {
+    max-width: clamp(325px, 100vw, 550px);
+  }
+
   .cards-wrapper {
     max-width: 1440px;
     display: flex;
@@ -98,7 +157,7 @@ const portfolios = siteData.portfolios as Project[];
   }
 
   .section {
-    margin-top: 4em;
+    margin-bottom: 5em;
     width: 100%;
   }
 </style>
