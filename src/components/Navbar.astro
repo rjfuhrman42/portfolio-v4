@@ -1,7 +1,7 @@
 ---
 import ThemeButton from "./ThemeButton.astro";
 
-import ArrowUpRightIcon from "@assets/svg/arrow-up-right-circle.svg";
+import ArrowUpRightIcon from "@assets/svg/arrow-right.svg";
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
@@ -21,7 +21,13 @@ const currentPath = pathname.slice(1); // remove the first "/"
       href="/posts/"
       class={`${currentPath.includes("posts/") ? "active" : ""}`}>Blog</a
     >
-    <a href="/Reid_Fuhrman_resume.pdf" target="_blank">Resume{" "}-></a>
+    <a class="resume" href="/Reid_Fuhrman_resume.pdf" target="_blank"
+      >Resume{" "}<ArrowUpRightIcon
+        class="arrow"
+        height={17}
+        stroke-width={5}
+      /></a
+    >
     <div class="theme-button">
       <ThemeButton />
     </div>
@@ -49,7 +55,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
   nav > a {
     display: flex;
     align-items: center;
-    font-family: "Fragment Mono", monospace;
+    font-family: var(--mono-font);
     text-transform: uppercase;
     border-radius: 0.175rem;
     padding: 0.25em 0.75em;
@@ -61,6 +67,16 @@ const currentPath = pathname.slice(1); // remove the first "/"
     background-color: var(--deep-blue);
     color: var(--nice-beige);
     text-decoration: none;
+  }
+
+  nav > a:hover svg {
+    color: var(--nice-beige);
+    stroke: var(--nice-beige);
+  }
+
+  :global(.dark) nav > a:hover svg {
+    color: var(--deep-blue);
+    stroke: var(--deep-blue);
   }
 
   :global(.dark) nav > a:hover {
@@ -103,5 +119,19 @@ const currentPath = pathname.slice(1); // remove the first "/"
   }
   .link-card:is(:hover, :focus-within) h2 {
     color: rgb(var(--accent-light));
+  }
+
+  .resume {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  nav svg {
+    stroke: var(--bg-color-dark);
+  }
+
+  :global(.dark) nav svg {
+    stroke: var(--bg-color-light);
   }
 </style>

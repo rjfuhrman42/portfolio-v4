@@ -69,13 +69,13 @@ svg {
   max-width: 100%;
 }
 
-svg,
-path {
+footer svg,
+footer path {
   stroke: var(--bg-color-dark);
 }
 
-.dark svg,
-.dark path {
+.dark footer svg,
+.dark footer path {
   stroke: var(--bg-color-light);
 }
 

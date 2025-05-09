@@ -21,3 +21,5 @@ dist/
 .env
 
 .astro
+.astro/types.d.ts
+.astro/data-store.json

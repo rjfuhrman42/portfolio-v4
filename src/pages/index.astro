@@ -62,6 +62,16 @@ import ArrowRightIcon from "@assets/svg/arrow-right.svg";
       cursor: pointer;
     }
 
+    .hero svg,
+    .hero path {
+      stroke: var(--bg-color-dark);
+    }
+
+    .dark .hero svg,
+    .dark .hero path {
+      stroke: var(--bg-color-light);
+    }
+
     @media (width >= 32rem) {
       .hero > h1 {
         font-size: var(--fluid-36-64);
