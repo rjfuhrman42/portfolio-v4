@@ -21,9 +21,11 @@ const currentPath = pathname.slice(1); // remove the first "/"
       href="/posts/"
       class={`${currentPath.includes("posts/") ? "active" : ""}`}>Blog</a
     >
+    <a href="/sound-archive/">sounds</a>
     <a class="resume" href="/Reid_Fuhrman_resume.pdf" target="_blank"
       >Resume{" "}<ArrowUpRightIcon class="arrow" height={15} /></a
     >
+
     <div class="theme-button">
       <ThemeButton />
     </div>

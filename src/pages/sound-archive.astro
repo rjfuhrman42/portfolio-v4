@@ -1,0 +1,38 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+
+import pierImage from "@assets/images/pier.png";
+import audio from "../assets/audio/pier.mp3";
+---
+
+<Layout title="Reid Fuhrman">
+  <section class="sound-archive">
+    <h2>sounds archive</h2>
+    <div class="archive">
+      <button>
+        <Image width={300} src={pierImage} alt="a pier with rough water" />
+      </button>
+    </div>
+  </section>
+  <script>
+    // Find all buttons with the `alert` class on the page.
+    const buttons = document.querySelectorAll("button");
+
+    // Handle clicks on each button.
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        console.log("heer!");
+        const sound = new Audio("../assets/audio/pier.mp3");
+        sound.play();
+      });
+    });
+  </script>
+</Layout>
+
+<style>
+  section {
+    padding: var(--site-padding);
+  }
+</style>

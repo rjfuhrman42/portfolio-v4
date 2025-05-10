@@ -1,6 +1,8 @@
 ---
 import Layout from "./Layout.astro";
 import siteData from "../data/site.json";
+import Navbar from "@components/Navbar.astro";
+import Footer from "@components/Footer.astro";
 
 interface Props {
   title: string;
@@ -11,42 +13,11 @@ const { profile } = siteData;
 ---
 
 <Layout title={title}>
-  <main class="layout">
-    <!-- Left Column -->
-    <div class="left-column">
-      <section class="profile-section">
-        <a href="/" class="logo-link">
-          <img src={profile.avatar} alt="Profile" class="avatar" />
-          <h1 class="logo">{profile.name}</h1>
-        </a>
-
-        <div class="bio">
-          {
-            profile.bio.map((item) => (
-              <p>
-                <span class="icon">{item.icon}</span> {item.text}
-              </p>
-            ))
-          }
-        </div>
-
-        <div class="social-links">
-          {
-            profile.socials.map((social) => (
-              <a href={social.url} class="social-link">
-                <span class="icon">{social.icon}</span> {social.name}
-              </a>
-            ))
-          }
-        </div>
-      </section>
-    </div>
-
-    <!-- Right Column -->
-    <div class="right-column">
-      <slot />
-    </div>
-  </main>
+  <Navbar />
+  <div class="main-slot">
+    <slot />
+  </div>
+  <Footer />
 </Layout>
 
 <style>
