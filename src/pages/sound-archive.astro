@@ -37,11 +37,12 @@ import { sounds } from "../data/site.json";
       }
 
       button.addEventListener("click", () => {
-        console.log("here", sound.name);
         if (!audio.paused) {
+          button.classList.remove("playing");
           audio.pause();
           return;
         }
+        button.classList.add("playing");
         audio.play();
       });
     });
@@ -54,17 +55,25 @@ import { sounds } from "../data/site.json";
   }
   .archive {
     display: flex;
-    gap: 1em;
+    gap: 2em;
   }
 
   .sound-archive button {
     background-color: transparent;
     padding: 0;
+    border: 0.5px solid black;
+    transition: transform 0.25s;
+  }
+
+  .playing {
+    transform: scale(1.05);
   }
 
   .sound-archive img {
-    height: 275px;
-    width: 275px;
-    background-color: black;
+    height: 350px;
+    max-width: 325px;
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 3.5rem;
   }
 </style>
