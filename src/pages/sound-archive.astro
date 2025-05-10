@@ -3,35 +3,46 @@ import Layout from "@layouts/Layout.astro";
 
 import { Image } from "astro:assets";
 
-import pierImage from "@assets/images/stpeters.png";
-import sounds from "../data/site.json";
+import { sounds } from "../data/site.json";
 ---
 
 <Layout title="Reid Fuhrman">
   <section class="sound-archive">
     <h2>sounds archive</h2>
     <div class="archive">
-      <button>
-        <Image width={300} src={pierImage} alt="a pier with rough water" />
-      </button>
+      {
+        sounds.map((sound) => {
+          return (
+            <button id={sound.name}>
+              <Image
+                width={300}
+                height={300}
+                src={sound.image}
+                alt="a pier with rough water"
+              />
+            </button>
+          );
+        })
+      }
     </div>
   </section>
   <script>
-    // Find all buttons with the `alert` class on the page.
-    import sound from "@assets/audio/stpeters.mp3";
+    import { sounds } from "../data/site.json";
 
-    const pier = new Audio(sound);
+    sounds.forEach((sound) => {
+      const button = document.querySelector(`#${sound.name}`);
+      const audio = new Audio(sound.audio);
+      if (!button) {
+        return;
+      }
 
-    const buttons = document.querySelectorAll("button");
-
-    // Handle clicks on each button.
-    buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        if (!pier.paused) {
-          pier.pause();
+        console.log("here", sound.name);
+        if (!audio.paused) {
+          audio.pause();
           return;
         }
-        pier.play();
+        audio.play();
       });
     });
   </script>
@@ -41,9 +52,19 @@ import sounds from "../data/site.json";
   section {
     padding: var(--site-padding);
   }
+  .archive {
+    display: flex;
+    gap: 1em;
+  }
 
   .sound-archive button {
     background-color: transparent;
     padding: 0;
+  }
+
+  .sound-archive img {
+    height: 275px;
+    width: 275px;
+    background-color: black;
   }
 </style>

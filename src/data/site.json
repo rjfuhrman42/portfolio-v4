@@ -175,12 +175,12 @@
   },
   "sounds": [
     {
-      "name": "Bush Terminal Pier",
+      "name": "pier",
       "audio": "/src/assets/audio/pier.mp3",
       "image": "/src/assets/images/pier.png"
     },
     {
-      "name": "St. Peters Graveyard",
+      "name": "stpeters",
       "audio": "/src/assets/audio/stpeters.mp3",
       "image": "/src/assets/images/stpeters.png"
     }
