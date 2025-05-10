@@ -3,8 +3,8 @@ import Layout from "@layouts/Layout.astro";
 
 import { Image } from "astro:assets";
 
-import pierImage from "@assets/images/pier.png";
-import audio from "../assets/audio/pier.mp3";
+import pierImage from "@assets/images/stpeters.png";
+import sounds from "../data/site.json";
 ---
 
 <Layout title="Reid Fuhrman">
@@ -18,14 +18,20 @@ import audio from "../assets/audio/pier.mp3";
   </section>
   <script>
     // Find all buttons with the `alert` class on the page.
+    import sound from "@assets/audio/stpeters.mp3";
+
+    const pier = new Audio(sound);
+
     const buttons = document.querySelectorAll("button");
 
     // Handle clicks on each button.
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        console.log("heer!");
-        const sound = new Audio("../assets/audio/pier.mp3");
-        sound.play();
+        if (!pier.paused) {
+          pier.pause();
+          return;
+        }
+        pier.play();
       });
     });
   </script>
@@ -34,5 +40,10 @@ import audio from "../assets/audio/pier.mp3";
 <style>
   section {
     padding: var(--site-padding);
+  }
+
+  .sound-archive button {
+    background-color: transparent;
+    padding: 0;
   }
 </style>

@@ -172,5 +172,17 @@
         "codeUrl": "https://github.com/rjfuhrman42/Portfolio-Website"
       }
     ]
-  }
+  },
+  "sounds": [
+    {
+      "name": "Bush Terminal Pier",
+      "audio": "/src/assets/audio/pier.mp3",
+      "image": "/src/assets/images/pier.png"
+    },
+    {
+      "name": "St. Peters Graveyard",
+      "audio": "/src/assets/audio/stpeters.mp3",
+      "image": "/src/assets/images/stpeters.png"
+    }
+  ]
 }
