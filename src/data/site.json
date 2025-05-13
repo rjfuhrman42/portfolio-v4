@@ -94,7 +94,8 @@
           "typescript",
           "tailwindcss",
           "postgresql",
-          "supabase"
+          "supabase",
+          "figma"
         ],
         "thumbnail": {
           "imagePath": "/src/assets/images/cookeri-preview.png",
@@ -130,7 +131,7 @@
       {
         "name": "v4",
         "description": "The site you're on right now :)",
-        "tags": ["astro", "typescript", "cloudflare pages", "mdx"],
+        "tags": ["astro", "typescript", "cloudflare pages", "mdx", "figma"],
         "thumbnail": {
           "imagePath": "/src/assets/images/flowers.png",
           "altText": "version 4 of my portfolio site"
@@ -141,7 +142,7 @@
       {
         "name": "v3",
         "description": "Version 3 of my portfolio. Minimalist, inspired by pixel art and video games aesthetic.",
-        "tags": ["nextjs", "tailwindcss", "vercel", "mdx"],
+        "tags": ["nextjs", "tailwindcss", "vercel", "mdx", "figma"],
         "thumbnail": {
           "imagePath": "/src/assets/images/v3.png",
           "altText": "version 3 of my portfolio site"
