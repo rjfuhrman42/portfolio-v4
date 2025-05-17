@@ -184,6 +184,16 @@
       "name": "stpeters",
       "audio": "/src/assets/audio/stpeters.mp3",
       "image": "/src/assets/images/stpeters.png"
+    },
+    {
+      "name": "stavrosstavros_rooftop1",
+      "audio": "/src/assets/audio/stavros_rooftop1.mp3",
+      "image": "/src/assets/images/stavros_rooftop.png"
+    },
+    {
+      "name": "stavrosstavros_rooftop2",
+      "audio": "/src/assets/audio/stavros_rooftop2.mp3",
+      "image": "/src/assets/images/stavros_rooftop2.png"
     }
   ]
 }
