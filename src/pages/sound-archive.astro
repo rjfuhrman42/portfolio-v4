@@ -25,6 +25,7 @@ import { sounds } from "../data/site.json";
         })
       }
     </div>
+    <a href="/fun/">exit the archive</a>
   </section>
   <script>
     import { sounds } from "../data/site.json";
@@ -54,7 +55,7 @@ import { sounds } from "../data/site.json";
     padding: var(--site-padding);
     background-color: black;
     color: white;
-    height: 100vw;
+    height: 100vh;
   }
 
   .sound-archive h2 {
@@ -83,5 +84,17 @@ import { sounds } from "../data/site.json";
     height: 350px;
     max-width: 325px;
     background-color: white;
+  }
+
+  a {
+    color: white;
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    transition: transform 0.25s;
+  }
+
+  a:hover {
+    transform: skew(25deg);
   }
 </style>
