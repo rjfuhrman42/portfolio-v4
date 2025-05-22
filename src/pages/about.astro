@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import MainLayout from "@layouts/MainLayout.astro";
 
 import { Image } from "astro:assets";
 
@@ -8,7 +8,7 @@ import latteArt from "@assets/images/latte-art.webp";
 import bikeReading from "@assets/images/bikereading.webp";
 ---
 
-<Layout title="Reid Fuhrman">
+<MainLayout title="Reid Fuhrman">
   <section class="about-me">
     <div class="about-text">
       <h2>About Me</h2>
@@ -50,104 +50,104 @@ import bikeReading from "@assets/images/bikereading.webp";
         />
       </div>
     </div>
+  </section>
+</MainLayout>
 
-    <style>
-      .about-me {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 2em;
-        padding-bottom: 10em;
-      }
-      .about-text {
-        display: flex;
-        flex-direction: column;
-        max-width: clamp(325px, 100vw, 550px);
-        gap: 2em;
-      }
-      .about-text p {
-        font-size: var(--step-0);
-        font-weight: 500;
-      }
-      .image-collage {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        align-items: center;
-        position: relative;
-        scrollbar-width: none;
-      }
+<style>
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2em;
+    padding-bottom: 10em;
+  }
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    max-width: clamp(325px, 100vw, 550px);
+    gap: 2em;
+  }
+  .about-text p {
+    font-size: var(--step-0);
+    font-weight: 500;
+  }
+  .image-collage {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    position: relative;
+    scrollbar-width: none;
+  }
 
-      img {
-        margin: clamp(0.25rem, 2vw, 3rem);
-      }
+  img {
+    margin: clamp(0.25rem, 2vw, 3rem);
+  }
 
-      .image-collage img {
-        background-color: var(--deep-blue-lighter);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-        padding: 10px;
-        padding-bottom: 3.5rem;
-        max-width: 325px;
-        animation-name: fadeIn;
-        animation-duration: 1s;
-        animation-timing-function: ease-in;
-      }
+  .image-collage img {
+    background-color: var(--deep-blue-lighter);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    padding: 10px;
+    padding-bottom: 3.5rem;
+    max-width: 325px;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+  }
 
-      :global(.dark) .image-collage img {
-        background-color: var(--nice-beige);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-        padding: 10px;
-        padding-bottom: 50px;
-      }
+  :global(.dark) .image-collage img {
+    background-color: var(--nice-beige);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    padding: 10px;
+    padding-bottom: 50px;
+  }
 
-      .image-collage img:nth-child(1) {
-        rotate: -5deg;
-        z-index: 10;
-      }
+  .image-collage img:nth-child(1) {
+    rotate: -5deg;
+    z-index: 10;
+  }
 
-      .hobbies {
-        gap: 2em;
-      }
+  .hobbies {
+    gap: 2em;
+  }
 
-      .hobbies img:nth-child(1) {
-        transform: rotateZ(5deg);
-        max-width: 200px;
-      }
+  .hobbies img:nth-child(1) {
+    transform: rotateZ(5deg);
+    max-width: 200px;
+  }
 
-      .hobbies img:nth-child(2) {
-        transform: rotateZ(10deg);
-        max-width: 225px;
-      }
+  .hobbies img:nth-child(2) {
+    transform: rotateZ(10deg);
+    max-width: 225px;
+  }
 
-      @media (min-width: 1024px) {
-        .about-me {
-          flex-direction: row;
-        }
-      }
+  @media (min-width: 1024px) {
+    .about-me {
+      flex-direction: row;
+    }
+  }
 
-      @media (min-width: 768px) {
-        .about-text p {
-          /* font-size: var(--step-1); */
-        }
+  @media (min-width: 768px) {
+    .about-text p {
+      /* font-size: var(--step-1); */
+    }
 
-        .image-collage {
-          flex-direction: row;
-        }
-      }
+    .image-collage {
+      flex-direction: row;
+    }
+  }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
 
-        to {
-          opacity: 1;
-        }
-      }
+    to {
+      opacity: 1;
+    }
+  }
 
-      .fadeIn {
-        animation-name: fadeIn;
-      }
-    </style>
-  </section></Layout
->
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+</style>

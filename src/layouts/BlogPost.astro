@@ -2,12 +2,13 @@
 import Layout from "./Layout.astro";
 import "@styles/global.css";
 import "@assets/images/yellowflower.png";
+import MainLayout from "./MainLayout.astro";
 
 const { frontmatter } = Astro.props;
 const date = new Date(frontmatter.date);
 ---
 
-<Layout title={frontmatter.title}>
+<MainLayout title={frontmatter.title}>
   <div class="post-container">
     <article class="post">
       <h1>{frontmatter.title}</h1>
@@ -17,7 +18,7 @@ const date = new Date(frontmatter.date);
       </div>
     </article>
   </div>
-</Layout>
+</MainLayout>
 
 <style is:global>
   .post-container {
