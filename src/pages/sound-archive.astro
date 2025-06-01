@@ -34,9 +34,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <script>
     import { sounds } from "../data/site.json";
 
+    const audioPaths = import.meta.glob("@assets/audio/*.{mp3,}");
+
     sounds.forEach((sound) => {
       const button = document.querySelector(`#${sound.name}`);
-      const audio = new Audio(sound.audio);
+      const audio = new Audio(audioPaths[sound.audio].name);
       if (!button) {
         return;
       }
