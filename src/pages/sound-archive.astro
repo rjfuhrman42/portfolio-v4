@@ -4,6 +4,10 @@ import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 
 import { sounds } from "../data/site.json";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "@assets/images/*.{jpeg,jpg,png,gif}",
+);
 ---
 
 <Layout title="Reid Fuhrman">
@@ -17,7 +21,7 @@ import { sounds } from "../data/site.json";
               <Image
                 width={300}
                 height={300}
-                src={sound.image}
+                src={images[sound.image]()}
                 alt="a pier with rough water"
               />
             </button>
