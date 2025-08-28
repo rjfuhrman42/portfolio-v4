@@ -4,6 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 
 import siteData from "@data/site.json";
+import MainLayout from "@layouts/MainLayout.astro";
 export type Project = {
   name: string;
   tags: string[];
@@ -20,7 +21,7 @@ export type Project = {
 const { work, personal, portfolios } = siteData.projects;
 ---
 
-<Layout title="Reid Fuhrman">
+<MainLayout title="Reid Fuhrman">
   <section class="projects">
     <div class="cards-wrapper">
       <div class="heading">
@@ -118,7 +119,7 @@ const { work, personal, portfolios } = siteData.projects;
       </div>
     </div>
   </section>
-</Layout>
+</MainLayout>
 
 <style>
   .projects {

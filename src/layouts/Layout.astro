@@ -40,11 +40,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <main class="container" role="main">
-      <Navbar />
-      <div class="main-slot">
-        <slot />
-      </div>
-      <Footer />
+      <slot />
     </main>
   </body>
 </html>

@@ -1,16 +1,13 @@
 ---
-import Layout from "@layouts/Layout.astro";
-
-import { Image } from "astro:assets";
-import latteArt from "@assets/images/latte-art.webp";
 import dayjs from "dayjs";
 import localized from "dayjs/plugin/localizedFormat";
+import MainLayout from "@layouts/MainLayout.astro";
 
 const posts = await Astro.glob("./posts/*{md,mdx}");
 dayjs.extend(localized);
 ---
 
-<Layout title="Reid Fuhrman">
+<MainLayout title="Reid Fuhrman">
   <section class="posts">
     <h2 class="posts-header">Blog posts</h2>
     <ul>
@@ -43,67 +40,67 @@ dayjs.extend(localized);
         })
       }
     </ul>
+  </section>
+</MainLayout>
 
-    <style>
-      .posts {
-        max-width: 768px;
-      }
+<style>
+  .posts {
+    max-width: 768px;
+  }
 
-      .posts > ul {
-        padding: 2em 0 5em 0;
-        list-style-type: none;
-        display: flex;
-        flex-direction: column;
-        gap: 2em;
-      }
+  .posts > ul {
+    padding: 2em 0 5em 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
 
-      .post-card {
-        position: relative;
-        border: 1.5px solid var(--deep-blue);
-        transition: all 0.2s ease-in-out;
-      }
+  .post-card {
+    position: relative;
+    border: 1.5px solid var(--deep-blue);
+    transition: all 0.2s ease-in-out;
+  }
 
-      header {
-        font-family: var(--mono-font);
-      }
+  header {
+    font-family: var(--mono-font);
+  }
 
-      header,
-      .post-body {
-        padding: 1.5em;
-      }
+  header,
+  .post-body {
+    padding: 1.5em;
+  }
 
-      .post-image {
-        height: 228px;
-        width: 766px;
-        background-color: black;
-        object-fit: cover;
-        border-top: 1.5px solid var(--deep-blue);
-        border-bottom: 1.5px solid var(--deep-blue);
-      }
+  .post-image {
+    height: 228px;
+    width: 766px;
+    background-color: black;
+    object-fit: cover;
+    border-top: 1.5px solid var(--deep-blue);
+    border-bottom: 1.5px solid var(--deep-blue);
+  }
 
-      .post-link {
-        font-size: var(--step-1);
-        font-weight: bold;
-      }
+  .post-link {
+    font-size: var(--step-1);
+    font-weight: bold;
+  }
 
-      .post-link::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-      }
+  .post-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
 
-      .post-card:hover {
-        transform: scale(1.025);
-      }
+  .post-card:hover {
+    transform: scale(1.025);
+  }
 
-      :global(.dark) .post-card {
-        border: 1.5px solid var(--nice-beige);
-      }
+  :global(.dark) .post-card {
+    border: 1.5px solid var(--nice-beige);
+  }
 
-      :global(.dark) .post-image {
-        border-top: 1.5px solid var(--nice-beige);
-        border-bottom: 1.5px solid var(--nice-beige);
-      }
-    </style>
-  </section></Layout
->
+  :global(.dark) .post-image {
+    border-top: 1.5px solid var(--nice-beige);
+    border-bottom: 1.5px solid var(--nice-beige);
+  }
+</style>

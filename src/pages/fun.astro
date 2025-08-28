@@ -1,0 +1,38 @@
+---
+import dayjs from "dayjs";
+import localized from "dayjs/plugin/localizedFormat";
+import MainLayout from "@layouts/MainLayout.astro";
+
+const posts = await Astro.glob("./posts/*{md,mdx}");
+dayjs.extend(localized);
+---
+
+<MainLayout title="Reid Fuhrman">
+  <section class="posts">
+    <h2 class="posts-header">Fun Stuff</h2>
+    <p>Art, experiments, fun things I'm working on.</p>
+    <ul>
+      <li>
+        <a href="/sound-archive/">sounds archive</a>
+      </li>
+    </ul>
+
+    <style>
+      .posts {
+        max-width: 768px;
+      }
+
+      .posts > ul {
+        padding: 2em 0 5em 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+      }
+
+      ul > li {
+        text-transform: uppercase;
+      }
+    </style>
+  </section></MainLayout
+>
